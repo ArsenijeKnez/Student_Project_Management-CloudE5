@@ -7,17 +7,31 @@ using System.Threading.Tasks;
 using Microsoft.ServiceFabric.Data.Collections;
 using Microsoft.ServiceFabric.Services.Communication.Runtime;
 using Microsoft.ServiceFabric.Services.Runtime;
+using Common.Interface;
+using Common.Dto;
 
 namespace UserManagementService
 {
     /// <summary>
     /// An instance of this class is created for each service replica by the Service Fabric runtime.
     /// </summary>
-    internal sealed class UserManagementService : StatefulService
+    internal sealed class UserManagementService : StatefulService, IUserManagementService
     {
         public UserManagementService(StatefulServiceContext context)
             : base(context)
         { }
+
+        public Task<ResultMessage> LoginAsync(RegisterUser request)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<ResultMessage> RegisterAsync(LoginUser request)
+        {
+            throw new NotImplementedException();
+        }
+
+
 
         /// <summary>
         /// Optional override to create listeners (e.g., HTTP, Service Remoting, WCF, etc.) for this service replica to handle client or user requests.
@@ -30,6 +44,7 @@ namespace UserManagementService
         {
             return new ServiceReplicaListener[0];
         }
+
 
         /// <summary>
         /// This is the main entry point for your service replica.

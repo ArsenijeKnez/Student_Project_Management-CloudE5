@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.12.35527.113 d17.12
+VisualStudioVersion = 17.12.35527.113
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{A07B5EB6-E848-4116-A8D0-A826331D98C6}") = "Student_Project_Management-CloudE5", "Student_Project_Management-CloudE5.sfproj", "{023A5FB4-5D4C-4475-A233-05DABEC3A517}"
 EndProject
@@ -14,6 +14,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnalysisService", "AnalysisService\AnalysisService.csproj", "{7EBF1A63-65C7-4C1C-B110-F92AF52BE3E7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProgressService", "ProgressService\ProgressService.csproj", "{1835662C-6E4D-4862-9140-AF5F24F68BE6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{5A0DFF6A-70E6-42DE-BB1C-D5E6E1CC029E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -75,6 +77,14 @@ Global
 		{1835662C-6E4D-4862-9140-AF5F24F68BE6}.Release|Any CPU.Build.0 = Release|Any CPU
 		{1835662C-6E4D-4862-9140-AF5F24F68BE6}.Release|x64.ActiveCfg = Release|Any CPU
 		{1835662C-6E4D-4862-9140-AF5F24F68BE6}.Release|x64.Build.0 = Release|Any CPU
+		{5A0DFF6A-70E6-42DE-BB1C-D5E6E1CC029E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A0DFF6A-70E6-42DE-BB1C-D5E6E1CC029E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A0DFF6A-70E6-42DE-BB1C-D5E6E1CC029E}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{5A0DFF6A-70E6-42DE-BB1C-D5E6E1CC029E}.Debug|x64.Build.0 = Debug|Any CPU
+		{5A0DFF6A-70E6-42DE-BB1C-D5E6E1CC029E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A0DFF6A-70E6-42DE-BB1C-D5E6E1CC029E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5A0DFF6A-70E6-42DE-BB1C-D5E6E1CC029E}.Release|x64.ActiveCfg = Release|Any CPU
+		{5A0DFF6A-70E6-42DE-BB1C-D5E6E1CC029E}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
