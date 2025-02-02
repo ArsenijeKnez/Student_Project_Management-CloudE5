@@ -27,6 +27,11 @@ namespace UserManagementService.UserDB
             return await _users.Find(u => u.Id == id).FirstOrDefaultAsync();
         }
 
+        public async Task<User> GetUserByUsernameOrEmailAsync(string usernameOrEmail)
+        {
+            return await _users.Find(u => u.Username == usernameOrEmail || u.Email == usernameOrEmail).FirstOrDefaultAsync();
+        }
+
         public async Task AddUserAsync(User user)
         {
             await _users.InsertOneAsync(user);

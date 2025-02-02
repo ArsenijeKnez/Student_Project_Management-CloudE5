@@ -10,8 +10,8 @@ namespace Common.Interface
 {
     public interface IUserManagementService : IService
     {
-        Task<ResultMessage> RegisterAsync(LoginUser request);
-        Task<ResultMessage> LoginAsync(RegisterUser request);
+        Task<ResultMessage> RegisterAsync(RegisterUser request);
+        Task<ResultMessage> LoginAsync(LoginUser request);
 
     }
 }

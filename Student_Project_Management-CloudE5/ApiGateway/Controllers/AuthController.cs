@@ -19,14 +19,14 @@ namespace ApiGateway.Controllers
 
 
         [HttpPost("register")]
-        public async Task<IActionResult> Register([FromForm] LoginUser request)
+        public async Task<IActionResult> Register([FromForm] RegisterUser request)
         {
             var result = await _userService.RegisterAsync(request);
             return result.Success ? Ok(result) : BadRequest(result);
         }
 
         [HttpPost("login")]
-        public async Task<IActionResult> Login([FromForm] RegisterUser request)
+        public async Task<IActionResult> Login([FromForm] LoginUser request)
         {
             var result = await _userService.LoginAsync(request);
             return result.Success ? Ok(result) : Unauthorized(result);
