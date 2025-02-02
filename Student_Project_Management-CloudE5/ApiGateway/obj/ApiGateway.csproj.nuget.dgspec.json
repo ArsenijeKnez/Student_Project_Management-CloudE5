@@ -162,6 +162,10 @@
             "Microsoft.ServiceFabric.Services.Remoting": {
               "target": "Package",
               "version": "[7.1.2493, )"
+            },
+            "MongoDB.Driver": {
+              "target": "Package",
+              "version": "[3.1.0, )"
             }
           },
           "imports": [

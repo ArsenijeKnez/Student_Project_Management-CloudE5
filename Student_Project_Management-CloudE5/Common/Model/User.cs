@@ -4,22 +4,29 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
+using MongoDB.Bson;
+using MongoDB.Bson.Serialization.Attributes;
 
 namespace Common.Model
 {
-    [DataContract]
+
     public class User
     {
-        [DataMember]
-        public int Id { get; set; }
-        [DataMember]
+        [BsonId]
+        [BsonRepresentation(BsonType.ObjectId)]
+        public string Id { get; set; }
+
+        [BsonElement("username")]
         public string Username { get; set; }
-        [DataMember]
+
+        [BsonElement("email")]
         public string Email { get; set; }
-        [DataMember]
+
+        [BsonElement("passwordHash")]
         public string PasswordHash { get; set; }
-        [DataMember]
-        public string Role { get; set; } 
+
+        [BsonElement("role")]
+        public string Role { get; set; }
     }
 
 }

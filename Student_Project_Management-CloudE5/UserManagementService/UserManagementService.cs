@@ -9,6 +9,7 @@ using Microsoft.ServiceFabric.Services.Communication.Runtime;
 using Microsoft.ServiceFabric.Services.Runtime;
 using Common.Interface;
 using Common.Dto;
+using UserManagementService.UserDB;
 
 namespace UserManagementService
 {
@@ -17,9 +18,12 @@ namespace UserManagementService
     /// </summary>
     internal sealed class UserManagementService : StatefulService, IUserManagementService
     {
+        private readonly UserService _userService;
         public UserManagementService(StatefulServiceContext context)
             : base(context)
-        { }
+        {
+            _userService = new UserService("mongodb://localhost:27017", "UserDatabase", "Users");
+        }
 
         public Task<ResultMessage> LoginAsync(RegisterUser request)
         {
