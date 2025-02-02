@@ -18,16 +18,3 @@ defineEmits(['update:modelValue']);
     />
   </div>
 </template>
-
-<style scoped>
-.input-group {
-  display: flex;
-  flex-direction: column;
-}
-
-input {
-  padding: 0.5rem;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-</style>

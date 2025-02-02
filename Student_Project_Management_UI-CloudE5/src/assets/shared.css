@@ -1,0 +1,36 @@
+ form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+    max-width: 300px;
+  }
+  
+  button {
+    background-color: #37a259;
+    color: white;
+    border-radius: 5px;
+    border: none;
+    padding: 0.75rem;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #2e894b;
+  }
+  
+  .error-message {
+    color: red;
+    font-size: 0.9rem;
+  }
+
+  .input-group {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  input {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
