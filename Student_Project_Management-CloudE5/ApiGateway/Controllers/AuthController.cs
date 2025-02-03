@@ -15,11 +15,11 @@ namespace ApiGateway.Controllers
     [ApiController]
     public class AuthController : ControllerBase
     {
-        private readonly IUserManagementService _userService =  ServiceProxy.Create<IUserManagementService>(new Uri("fabric:/Student_Project_Management-CloudE5/UserManagementService"), new ServicePartitionKey(0), TargetReplicaSelector.PrimaryReplica);
+        private readonly IUserManagementService _userService = ServiceProxy.Create<IUserManagementService>(new Uri("fabric:/Student_Project_Management-CloudE5/UserManagementService"), new ServicePartitionKey(0), TargetReplicaSelector.PrimaryReplica);
 
 
         [HttpPost("register")]
-        public async Task<IActionResult> Register([FromForm] RegisterUser request)
+        public async Task<IActionResult> Register([FromForm] UserDto request)
         {
             var result = await _userService.RegisterAsync(request);
             return result.Success ? Ok(result) : BadRequest(result);
@@ -29,7 +29,7 @@ namespace ApiGateway.Controllers
         public async Task<IActionResult> Login([FromForm] LoginUser request)
         {
             var result = await _userService.LoginAsync(request);
-            return result.Success ? Ok(result) : Unauthorized(result);
+            return result != null ? Ok(result) : Unauthorized(new ResultMessage {Success = false, Message = "Invalid credentials" });
         }
 
     }

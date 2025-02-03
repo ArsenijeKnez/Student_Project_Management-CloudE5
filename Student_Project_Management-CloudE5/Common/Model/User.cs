@@ -25,6 +25,12 @@ namespace Common.Model
         [BsonElement("passwordHash")]
         public string PasswordHash { get; set; }
 
+        [BsonElement("firstName")]
+        public string FirstName { get; set; }
+
+        [BsonElement("lastName")]
+        public string LastName { get; set; }
+
         [BsonElement("role")]
         public string Role { get; set; }
     }

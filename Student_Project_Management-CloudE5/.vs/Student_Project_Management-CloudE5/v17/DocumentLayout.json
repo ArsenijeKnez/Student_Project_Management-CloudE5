@@ -3,6 +3,18 @@
   "WorkspaceRootPath": "D:\\CLOUDMaster\\Student_Project_Management-CloudE5\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{B2CE9009-2C51-4BFB-8DE1-F21D40310D8A}|UserManagementService\\UserManagementService.csproj|d:\\cloudmaster\\student_project_management-cloude5\\usermanagementservice\\usermanagementservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B2CE9009-2C51-4BFB-8DE1-F21D40310D8A}|UserManagementService\\UserManagementService.csproj|solutionrelative:usermanagementservice\\usermanagementservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A5F254A7-EA4D-46D8-B171-FD692409082D}|SubmissionService\\SubmissionService.csproj|d:\\cloudmaster\\student_project_management-cloude5\\submissionservice\\packageroot\\servicemanifest.xml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{A5F254A7-EA4D-46D8-B171-FD692409082D}|SubmissionService\\SubmissionService.csproj|solutionrelative:submissionservice\\packageroot\\servicemanifest.xml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A0DFF6A-70E6-42DE-BB1C-D5E6E1CC029E}|Common\\Common.csproj|d:\\cloudmaster\\student_project_management-cloude5\\common\\mapper\\usermapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A0DFF6A-70E6-42DE-BB1C-D5E6E1CC029E}|Common\\Common.csproj|solutionrelative:common\\mapper\\usermapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{5A0DFF6A-70E6-42DE-BB1C-D5E6E1CC029E}|Common\\Common.csproj|d:\\cloudmaster\\student_project_management-cloude5\\common\\common.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
       "RelativeMoniker": "D:0:0:{5A0DFF6A-70E6-42DE-BB1C-D5E6E1CC029E}|Common\\Common.csproj|solutionrelative:common\\common.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
@@ -11,12 +23,20 @@
       "RelativeMoniker": "D:0:0:{5A0DFF6A-70E6-42DE-BB1C-D5E6E1CC029E}|Common\\Common.csproj|solutionrelative:common\\model\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B2CE9009-2C51-4BFB-8DE1-F21D40310D8A}|UserManagementService\\UserManagementService.csproj|d:\\cloudmaster\\student_project_management-cloude5\\usermanagementservice\\usermanagementservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B2CE9009-2C51-4BFB-8DE1-F21D40310D8A}|UserManagementService\\UserManagementService.csproj|solutionrelative:usermanagementservice\\usermanagementservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5A0DFF6A-70E6-42DE-BB1C-D5E6E1CC029E}|Common\\Common.csproj|d:\\cloudmaster\\student_project_management-cloude5\\common\\dto\\userdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A0DFF6A-70E6-42DE-BB1C-D5E6E1CC029E}|Common\\Common.csproj|solutionrelative:common\\dto\\userdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A0DFF6A-70E6-42DE-BB1C-D5E6E1CC029E}|Common\\Common.csproj|d:\\cloudmaster\\student_project_management-cloude5\\common\\interface\\iusermanagementservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A0DFF6A-70E6-42DE-BB1C-D5E6E1CC029E}|Common\\Common.csproj|solutionrelative:common\\interface\\iusermanagementservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B2CE9009-2C51-4BFB-8DE1-F21D40310D8A}|UserManagementService\\UserManagementService.csproj|d:\\cloudmaster\\student_project_management-cloude5\\usermanagementservice\\userdb\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B2CE9009-2C51-4BFB-8DE1-F21D40310D8A}|UserManagementService\\UserManagementService.csproj|solutionrelative:usermanagementservice\\userdb\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{62F1A480-0B40-4051-84F8-BEF5BB293519}|ApiGateway\\ApiGateway.csproj|d:\\cloudmaster\\student_project_management-cloude5\\apigateway\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{62F1A480-0B40-4051-84F8-BEF5BB293519}|ApiGateway\\ApiGateway.csproj|solutionrelative:apigateway\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{62F1A480-0B40-4051-84F8-BEF5BB293519}|ApiGateway\\ApiGateway.csproj|d:\\cloudmaster\\student_project_management-cloude5\\apigateway\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -27,20 +47,20 @@
       "RelativeMoniker": "D:0:0:{5A0DFF6A-70E6-42DE-BB1C-D5E6E1CC029E}|Common\\Common.csproj|solutionrelative:common\\dto\\resultmessage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{5A0DFF6A-70E6-42DE-BB1C-D5E6E1CC029E}|Common\\Common.csproj|d:\\cloudmaster\\student_project_management-cloude5\\common\\dto\\loginuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A0DFF6A-70E6-42DE-BB1C-D5E6E1CC029E}|Common\\Common.csproj|solutionrelative:common\\dto\\loginuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B2CE9009-2C51-4BFB-8DE1-F21D40310D8A}|UserManagementService\\UserManagementService.csproj|d:\\cloudmaster\\student_project_management-cloude5\\usermanagementservice\\packageroot\\servicemanifest.xml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{B2CE9009-2C51-4BFB-8DE1-F21D40310D8A}|UserManagementService\\UserManagementService.csproj|solutionrelative:usermanagementservice\\packageroot\\servicemanifest.xml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{B2CE9009-2C51-4BFB-8DE1-F21D40310D8A}|UserManagementService\\UserManagementService.csproj|d:\\cloudmaster\\student_project_management-cloude5\\usermanagementservice\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B2CE9009-2C51-4BFB-8DE1-F21D40310D8A}|UserManagementService\\UserManagementService.csproj|solutionrelative:usermanagementservice\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5A0DFF6A-70E6-42DE-BB1C-D5E6E1CC029E}|Common\\Common.csproj|d:\\cloudmaster\\student_project_management-cloude5\\common\\interface\\iusermanagementservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5A0DFF6A-70E6-42DE-BB1C-D5E6E1CC029E}|Common\\Common.csproj|solutionrelative:common\\interface\\iusermanagementservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5A0DFF6A-70E6-42DE-BB1C-D5E6E1CC029E}|Common\\Common.csproj|d:\\cloudmaster\\student_project_management-cloude5\\common\\dto\\registeruser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5A0DFF6A-70E6-42DE-BB1C-D5E6E1CC029E}|Common\\Common.csproj|solutionrelative:common\\dto\\registeruser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5A0DFF6A-70E6-42DE-BB1C-D5E6E1CC029E}|Common\\Common.csproj|d:\\cloudmaster\\student_project_management-cloude5\\common\\dto\\loginuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5A0DFF6A-70E6-42DE-BB1C-D5E6E1CC029E}|Common\\Common.csproj|solutionrelative:common\\dto\\loginuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{62F1A480-0B40-4051-84F8-BEF5BB293519}|ApiGateway\\ApiGateway.csproj|d:\\cloudmaster\\student_project_management-cloude5\\apigateway\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{62F1A480-0B40-4051-84F8-BEF5BB293519}|ApiGateway\\ApiGateway.csproj|solutionrelative:apigateway\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{62F1A480-0B40-4051-84F8-BEF5BB293519}|ApiGateway\\ApiGateway.csproj|d:\\cloudmaster\\student_project_management-cloude5\\apigateway\\apigateway.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -54,34 +74,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 12,
+          "SelectedChildIndex": 21,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "UserService.cs",
-              "DocumentMoniker": "D:\\CLOUDMaster\\Student_Project_Management-CloudE5\\UserManagementService\\UserDB\\UserService.cs",
-              "RelativeDocumentMoniker": "UserManagementService\\UserDB\\UserService.cs",
-              "ToolTip": "D:\\CLOUDMaster\\Student_Project_Management-CloudE5\\UserManagementService\\UserDB\\UserService.cs",
-              "RelativeToolTip": "UserManagementService\\UserDB\\UserService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAVAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-02T16:37:27.844Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "User.cs",
-              "DocumentMoniker": "D:\\CLOUDMaster\\Student_Project_Management-CloudE5\\Common\\Model\\User.cs",
-              "RelativeDocumentMoniker": "Common\\Model\\User.cs",
-              "ToolTip": "D:\\CLOUDMaster\\Student_Project_Management-CloudE5\\Common\\Model\\User.cs",
-              "RelativeToolTip": "Common\\Model\\User.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-02T16:27:13.271Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
@@ -112,46 +106,139 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 2,
+              "Title": "UserMapper.cs",
+              "DocumentMoniker": "D:\\CLOUDMaster\\Student_Project_Management-CloudE5\\Common\\Mapper\\UserMapper.cs",
+              "RelativeDocumentMoniker": "Common\\Mapper\\UserMapper.cs",
+              "ToolTip": "D:\\CLOUDMaster\\Student_Project_Management-CloudE5\\Common\\Mapper\\UserMapper.cs",
+              "RelativeToolTip": "Common\\Mapper\\UserMapper.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAQwBsAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-03T14:06:39.046Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "UserController.cs",
+              "DocumentMoniker": "D:\\CLOUDMaster\\Student_Project_Management-CloudE5\\ApiGateway\\Controllers\\UserController.cs",
+              "RelativeDocumentMoniker": "ApiGateway\\Controllers\\UserController.cs",
+              "ToolTip": "D:\\CLOUDMaster\\Student_Project_Management-CloudE5\\ApiGateway\\Controllers\\UserController.cs",
+              "RelativeToolTip": "ApiGateway\\Controllers\\UserController.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAAwDAAAAA+AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-03T13:51:15.471Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
               "Title": "ResultMessage.cs",
               "DocumentMoniker": "D:\\CLOUDMaster\\Student_Project_Management-CloudE5\\Common\\Dto\\ResultMessage.cs",
               "RelativeDocumentMoniker": "Common\\Dto\\ResultMessage.cs",
               "ToolTip": "D:\\CLOUDMaster\\Student_Project_Management-CloudE5\\Common\\Dto\\ResultMessage.cs",
               "RelativeToolTip": "Common\\Dto\\ResultMessage.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-31T21:14:20.934Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-03T13:34:27.965Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 6,
+              "Title": "IUserManagementService.cs",
+              "DocumentMoniker": "D:\\CLOUDMaster\\Student_Project_Management-CloudE5\\Common\\Interface\\IUserManagementService.cs",
+              "RelativeDocumentMoniker": "Common\\Interface\\IUserManagementService.cs",
+              "ToolTip": "D:\\CLOUDMaster\\Student_Project_Management-CloudE5\\Common\\Interface\\IUserManagementService.cs",
+              "RelativeToolTip": "Common\\Interface\\IUserManagementService.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAIwBIAAAA3AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-03T13:32:28.678Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
               "Title": "LoginUser.cs",
               "DocumentMoniker": "D:\\CLOUDMaster\\Student_Project_Management-CloudE5\\Common\\Dto\\LoginUser.cs",
               "RelativeDocumentMoniker": "Common\\Dto\\LoginUser.cs",
               "ToolTip": "D:\\CLOUDMaster\\Student_Project_Management-CloudE5\\Common\\Dto\\LoginUser.cs",
               "RelativeToolTip": "Common\\Dto\\LoginUser.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-31T21:06:01.766Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-02T21:33:26.966Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "RegisterUser.cs",
-              "DocumentMoniker": "D:\\CLOUDMaster\\Student_Project_Management-CloudE5\\Common\\Dto\\RegisterUser.cs",
-              "RelativeDocumentMoniker": "Common\\Dto\\RegisterUser.cs",
-              "ToolTip": "D:\\CLOUDMaster\\Student_Project_Management-CloudE5\\Common\\Dto\\RegisterUser.cs",
-              "RelativeToolTip": "Common\\Dto\\RegisterUser.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAsAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-31T20:58:45.26Z",
-              "EditorCaption": ""
+              "DocumentIndex": 1,
+              "Title": "ServiceManifest.xml",
+              "DocumentMoniker": "D:\\CLOUDMaster\\Student_Project_Management-CloudE5\\SubmissionService\\PackageRoot\\ServiceManifest.xml",
+              "RelativeDocumentMoniker": "SubmissionService\\PackageRoot\\ServiceManifest.xml",
+              "ToolTip": "D:\\CLOUDMaster\\Student_Project_Management-CloudE5\\SubmissionService\\PackageRoot\\ServiceManifest.xml",
+              "RelativeToolTip": "SubmissionService\\PackageRoot\\ServiceManifest.xml",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003576|",
+              "WhenOpened": "2025-02-02T21:21:55.012Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 12,
+              "Title": "ServiceManifest.xml",
+              "DocumentMoniker": "D:\\CLOUDMaster\\Student_Project_Management-CloudE5\\UserManagementService\\PackageRoot\\ServiceManifest.xml",
+              "RelativeDocumentMoniker": "UserManagementService\\PackageRoot\\ServiceManifest.xml",
+              "ToolTip": "D:\\CLOUDMaster\\Student_Project_Management-CloudE5\\UserManagementService\\PackageRoot\\ServiceManifest.xml",
+              "RelativeToolTip": "UserManagementService\\PackageRoot\\ServiceManifest.xml",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAwwCcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003576|",
+              "WhenOpened": "2025-02-02T21:21:22.922Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\CLOUDMaster\\Student_Project_Management-CloudE5\\ApiGateway\\appsettings.json",
+              "RelativeDocumentMoniker": "ApiGateway\\appsettings.json",
+              "ToolTip": "D:\\CLOUDMaster\\Student_Project_Management-CloudE5\\ApiGateway\\appsettings.json",
+              "RelativeToolTip": "ApiGateway\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-02-02T21:09:31.862Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "UserDto.cs",
+              "DocumentMoniker": "D:\\CLOUDMaster\\Student_Project_Management-CloudE5\\Common\\Dto\\UserDto.cs",
+              "RelativeDocumentMoniker": "Common\\Dto\\UserDto.cs",
+              "ToolTip": "D:\\CLOUDMaster\\Student_Project_Management-CloudE5\\Common\\Dto\\UserDto.cs",
+              "RelativeToolTip": "Common\\Dto\\UserDto.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAuwBIAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-02T17:50:06.659Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "UserService.cs",
+              "DocumentMoniker": "D:\\CLOUDMaster\\Student_Project_Management-CloudE5\\UserManagementService\\UserDB\\UserService.cs",
+              "RelativeDocumentMoniker": "UserManagementService\\UserDB\\UserService.cs",
+              "ToolTip": "D:\\CLOUDMaster\\Student_Project_Management-CloudE5\\UserManagementService\\UserDB\\UserService.cs",
+              "RelativeToolTip": "UserManagementService\\UserDB\\UserService.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAAwD0AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-02T16:37:27.844Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "User.cs",
+              "DocumentMoniker": "D:\\CLOUDMaster\\Student_Project_Management-CloudE5\\Common\\Model\\User.cs",
+              "RelativeDocumentMoniker": "Common\\Model\\User.cs",
+              "ToolTip": "D:\\CLOUDMaster\\Student_Project_Management-CloudE5\\Common\\Model\\User.cs",
+              "RelativeToolTip": "Common\\Model\\User.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAA1wCMAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-02T16:27:13.271Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "Common.csproj",
               "DocumentMoniker": "D:\\CLOUDMaster\\Student_Project_Management-CloudE5\\Common\\Common.csproj",
               "RelativeDocumentMoniker": "Common\\Common.csproj",
@@ -159,38 +246,23 @@
               "RelativeToolTip": "Common\\Common.csproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAASAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-01-31T15:05:01.048Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-31T15:05:01.048Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "IUserManagementService.cs",
-              "DocumentMoniker": "D:\\CLOUDMaster\\Student_Project_Management-CloudE5\\Common\\Interface\\IUserManagementService.cs",
-              "RelativeDocumentMoniker": "Common\\Interface\\IUserManagementService.cs",
-              "ToolTip": "D:\\CLOUDMaster\\Student_Project_Management-CloudE5\\Common\\Interface\\IUserManagementService.cs",
-              "RelativeToolTip": "Common\\Interface\\IUserManagementService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAuwA0AAAAaAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-31T15:05:12.637Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 9,
               "Title": "AuthController.cs",
               "DocumentMoniker": "D:\\CLOUDMaster\\Student_Project_Management-CloudE5\\ApiGateway\\Controllers\\AuthController.cs",
               "RelativeDocumentMoniker": "ApiGateway\\Controllers\\AuthController.cs",
               "ToolTip": "D:\\CLOUDMaster\\Student_Project_Management-CloudE5\\ApiGateway\\Controllers\\AuthController.cs",
               "RelativeToolTip": "ApiGateway\\Controllers\\AuthController.cs",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAAACAAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAhwBEAAAA/AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-31T15:04:03.054Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-31T15:04:03.054Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 15,
               "Title": "ApiGateway.cs",
               "DocumentMoniker": "D:\\CLOUDMaster\\Student_Project_Management-CloudE5\\ApiGateway\\ApiGateway.cs",
               "RelativeDocumentMoniker": "ApiGateway\\ApiGateway.cs",
@@ -198,25 +270,24 @@
               "RelativeToolTip": "ApiGateway\\ApiGateway.cs",
               "ViewState": "AgIAACEAAAAAAAAAAAAYwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-31T14:56:19.632Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-31T14:56:19.632Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "UserManagementService.cs",
               "DocumentMoniker": "D:\\CLOUDMaster\\Student_Project_Management-CloudE5\\UserManagementService\\UserManagementService.cs",
               "RelativeDocumentMoniker": "UserManagementService\\UserManagementService.cs",
               "ToolTip": "D:\\CLOUDMaster\\Student_Project_Management-CloudE5\\UserManagementService\\UserManagementService.cs",
               "RelativeToolTip": "UserManagementService\\UserManagementService.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAuwA4AAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEoAAADMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-31T14:49:18.436Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 13,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\CLOUDMaster\\Student_Project_Management-CloudE5\\UserManagementService\\Program.cs",
               "RelativeDocumentMoniker": "UserManagementService\\Program.cs",
@@ -224,8 +295,7 @@
               "RelativeToolTip": "UserManagementService\\Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-31T14:49:17.426Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-31T14:49:17.426Z"
             }
           ]
         },

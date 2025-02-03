@@ -10,6 +10,9 @@ using Microsoft.ServiceFabric.Services.Runtime;
 using Common.Interface;
 using Common.Dto;
 using UserManagementService.UserDB;
+using Common.Model;
+using Microsoft.ServiceFabric.Services.Remoting.Runtime;
+using Common.Mapper;
 
 namespace UserManagementService
 {
@@ -25,63 +28,62 @@ namespace UserManagementService
             _userService = new UserService("mongodb://localhost:27017", "UserDatabase", "Users");
         }
 
-        public Task<ResultMessage> LoginAsync(RegisterUser request)
+        public async Task<ResultMessage> RegisterAsync(UserDto request)
         {
-            throw new NotImplementedException();
-        }
-
-        public Task<ResultMessage> RegisterAsync(LoginUser request)
-        {
-            throw new NotImplementedException();
-        }
-
-
-
-        /// <summary>
-        /// Optional override to create listeners (e.g., HTTP, Service Remoting, WCF, etc.) for this service replica to handle client or user requests.
-        /// </summary>
-        /// <remarks>
-        /// For more information on service communication, see https://aka.ms/servicefabricservicecommunication
-        /// </remarks>
-        /// <returns>A collection of listeners.</returns>
-        protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
-        {
-            return new ServiceReplicaListener[0];
-        }
-
-
-        /// <summary>
-        /// This is the main entry point for your service replica.
-        /// This method executes when this replica of your service becomes primary and has write status.
-        /// </summary>
-        /// <param name="cancellationToken">Canceled when Service Fabric needs to shut down this service replica.</param>
-        protected override async Task RunAsync(CancellationToken cancellationToken)
-        {
-            // TODO: Replace the following sample code with your own logic 
-            //       or remove this RunAsync override if it's not needed in your service.
-
-            var myDictionary = await this.StateManager.GetOrAddAsync<IReliableDictionary<string, long>>("myDictionary");
-
-            while (true)
+            var existingUsername = await _userService.GetUserByUsernameOrEmailAsync(request.Username);
+            var existingEmail = await _userService.GetUserByUsernameOrEmailAsync(request.Email);
+            if (existingUsername != null || existingEmail != null)
             {
-                cancellationToken.ThrowIfCancellationRequested();
-
-                using (var tx = this.StateManager.CreateTransaction())
-                {
-                    var result = await myDictionary.TryGetValueAsync(tx, "Counter");
-
-                    ServiceEventSource.Current.ServiceMessage(this.Context, "Current Counter Value: {0}",
-                        result.HasValue ? result.Value.ToString() : "Value does not exist.");
-
-                    await myDictionary.AddOrUpdateAsync(tx, "Counter", 0, (key, value) => ++value);
-
-                    // If an exception is thrown before calling CommitAsync, the transaction aborts, all changes are 
-                    // discarded, and nothing is saved to the secondary replicas.
-                    await tx.CommitAsync();
-                }
-
-                await Task.Delay(TimeSpan.FromSeconds(1), cancellationToken);
+                return new ResultMessage { Success = false, Message = "User already exists." };
             }
+
+            await _userService.AddUserAsync(UserMapper.ToEntity(request));
+
+            return new ResultMessage { Success = true, Message = "User registered successfully." };
         }
+
+        public async Task<UserDto> LoginAsync(LoginUser request)
+        {
+            var user = await _userService.GetUserByUsernameOrEmailAsync(request.UsernameOrEmail);
+            if (user == null || user.PasswordHash != request.Password) 
+            {
+                return null;
+            }
+
+            return UserMapper.ToDto(user);
+        }
+        public async Task<UserDto> GetUserByIdAsync(string id)
+        {
+            var user = await _userService.GetUserByIdAsync(id);
+            return UserMapper.ToDto(user);
+        }
+
+        public async Task<ResultMessage> UpdateUserAsync(string id, UserDto updatedUser)
+        {
+            bool result = await _userService.UpdateUserAsync(id, UserMapper.ToEntity(updatedUser));
+            return result? new ResultMessage { Success = true, Message = "User updated" } : new ResultMessage { Success = false, Message = "Error updating user" };
+        }
+
+        public async Task<List<UserDto>> GetAllUsersAsync()
+        {
+            var users = await _userService.GetAllUsersAsync();
+            return users.Select(u => UserMapper.ToDto(u)).ToList();
+        }
+
+        public async Task<ResultMessage> ChangeUserRoleAsync(string id, string newRole)
+        {
+            return await _userService.ChangeUserRoleAsync(id, newRole)? new ResultMessage { Success = true, Message = "Role changed" } : new ResultMessage { Success = false, Message = "Error changing role" };
+        }
+
+        public async Task<ResultMessage> DeleteUserAsync(string id)
+        {
+            return await _userService.DeleteUserAsync(id)? new ResultMessage { Success = true, Message = "User deleted"} : new ResultMessage { Success = false, Message = "Error deleting a user" };
+        }
+
+
+        protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners() => this.CreateServiceRemotingReplicaListeners();
+
+
+       
     }
 }

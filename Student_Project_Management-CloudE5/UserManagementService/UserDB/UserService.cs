@@ -37,6 +37,24 @@ namespace UserManagementService.UserDB
             await _users.InsertOneAsync(user);
         }
 
+        public async Task<bool> UpdateUserAsync(string id, User updatedUser)
+        {
+            var result = await _users.ReplaceOneAsync(u => u.Id == id, updatedUser);
+            return result.ModifiedCount > 0;
+        }
+
+        public async Task<List<User>> GetAllUsersAsync()
+        {
+            return await _users.Find(_ => true).ToListAsync();
+        }
+
+        public async Task<bool> ChangeUserRoleAsync(string id, string newRole)
+        {
+            var update = Builders<User>.Update.Set(u => u.Role, newRole);
+            var result = await _users.UpdateOneAsync(u => u.Id == id, update);
+            return result.ModifiedCount > 0;
+        }
+
         public async Task<bool> DeleteUserAsync(string id)
         {
             var result = await _users.DeleteOneAsync(u => u.Id == id);
