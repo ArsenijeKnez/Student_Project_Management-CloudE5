@@ -29,8 +29,7 @@
 import { ref } from 'vue';
 
 const users = ref([
-  { id: 1, name: 'John Doe', role: 'Professor' },
-  { id: 2, name: 'Jane Smith', role: 'Student' }
+  
 ]);
 
 const addUser = () => alert('Add User');
