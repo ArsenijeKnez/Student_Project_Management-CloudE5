@@ -1,23 +1,35 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
+import { ref, computed } from 'vue';
+import { useRouter } from 'vue-router';
+
+const router = useRouter();
+const user = ref(JSON.parse(sessionStorage.getItem('user')) || null);
+
+const isAdmin = computed(() => user.value?.role === 'Admin');
+
+const logout = () => {
+  sessionStorage.removeItem('user');
+  user.value = null;
+  router.push('/login');
+};
 </script>
 
 <template>
   <header>
     <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
-
     <nav>
       <RouterLink to="/">Home</RouterLink>
-      <RouterLink to="/login">Login</RouterLink>
-      <RouterLink to="/admin/users">Manage Users</RouterLink>
-      <RouterLink to="/admin/settings">System Settings</RouterLink>
-      <RouterLink to="/admin/reports">View Reports</RouterLink>
+      <RouterLink to="/login" v-if="!user">Login</RouterLink>
+      <template v-if="isAdmin">
+        <RouterLink to="/admin/users">Manage Users</RouterLink>
+        <RouterLink to="/admin/settings">System Settings</RouterLink>
+        <RouterLink to="/admin/reports">View Reports</RouterLink>
+      </template>
+      <button @click="logout" v-if="user">Logout</button>
     </nav>
   </header>
 
-  <body>
-    <RouterView />
-  </body>
+  <RouterView />
 </template>
 
 <style scoped>

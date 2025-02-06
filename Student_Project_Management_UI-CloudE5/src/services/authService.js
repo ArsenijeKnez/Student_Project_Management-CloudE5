@@ -14,7 +14,7 @@ export default {
         headers: { "Content-Type": "multipart/form-data" },
       });
 
-      return response.data;
+      return response;
     } catch (error) {
       return error.response?.data || { success: false, message: "Registration failed" };
     }
@@ -30,7 +30,7 @@ export default {
         headers: { "Content-Type": "multipart/form-data" },
       });
 
-      return response.data;
+      return response;
     } catch (error) {
       return error.response?.data || { success: false, message: "Login failed" };
     }

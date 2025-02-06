@@ -1,31 +1,28 @@
 <script setup>
 import { ref } from 'vue';
-import InputField from '@/components/InputField.vue';
 
-const email = ref('');
+const usernameOrEmail = ref('');
 const password = ref('');
-const errorMessage = ref('');
+const emit = defineEmits(['submit']);
 
 const handleLogin = () => {
-  if (!email.value || !password.value) {
-    errorMessage.value = 'Please fill in all fields.';
-    return;
-  }
-  if (!email.value.includes('@')) {
-    errorMessage.value = 'Enter a valid email address.';
-    return;
-  }
-  alert('correct!');
+  if (!usernameOrEmail.value || !password.value) return;
+  emit('submit', { usernameOrEmail: usernameOrEmail.value, password: password.value });
 };
 </script>
 
 <template>
   <form @submit.prevent="handleLogin">
-    <InputField v-model="email" label="Email" type="email" required />
-    <InputField v-model="password" label="Password" type="password" required />
-
-    <p v-if="errorMessage" class="error-message">{{ errorMessage }}</p>
-
+    <input v-model="usernameOrEmail" type="text" placeholder="Username or Email" required />
+    <input v-model="password" type="password" placeholder="Password" required />
     <button type="submit">Login</button>
   </form>
 </template>
+
+<style scoped>
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+</style>

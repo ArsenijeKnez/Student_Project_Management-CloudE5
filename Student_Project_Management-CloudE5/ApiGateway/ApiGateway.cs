@@ -55,7 +55,13 @@ namespace ApiGateway
                         }
                         app.UseAuthorization();
                         app.MapControllers();
-                        
+                        app.UseCors(options =>
+                        {
+                            options.AllowAnyOrigin()
+                                   .AllowAnyMethod()
+                                   .AllowAnyHeader();
+                        });
+
                         return app;
 
                     }))
