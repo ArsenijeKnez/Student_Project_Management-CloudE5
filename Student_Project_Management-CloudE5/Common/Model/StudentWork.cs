@@ -35,7 +35,7 @@ namespace Common.Model
         public DateTime? EstimatedAnalysisCompletion { get; set; }
 
         [BsonElement("feedback")]
-        public Feedback Feedback { get; set; }
+        public Feedback? Feedback { get; set; }
     }
 
 }

@@ -11,6 +11,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Azure.Storage.Blobs" Version="12.23.0" />
     <PackageReference Include="Microsoft.ServiceFabric.AspNetCore.Kestrel" Version="7.1.2493" />
     <PackageReference Include="Microsoft.ServiceFabric.Services.Remoting" Version="7.1.2493" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />

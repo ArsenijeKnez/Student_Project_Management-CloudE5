@@ -56,6 +56,10 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "Azure.Storage.Blobs": {
+              "target": "Package",
+              "version": "[12.23.0, )"
+            },
             "Microsoft.ServiceFabric.AspNetCore.Kestrel": {
               "target": "Package",
               "version": "[7.1.2493, )"
