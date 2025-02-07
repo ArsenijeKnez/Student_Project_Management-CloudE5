@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-const API_URL = '/api/users';
-const ADMIN_API_URL = '/api/admin/users';
+const API_URL = 'http://localhost:8366/api/User';
+const ADMIN_API_URL = 'http://localhost:8366/api/User/admin';
 
 export default {
     async getUser(id) {

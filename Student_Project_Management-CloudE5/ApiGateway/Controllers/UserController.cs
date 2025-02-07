@@ -30,14 +30,14 @@ namespace ApiGateway.Controllers
             return NoContent();
         }
 
-        [HttpGet("admin/users")]
+        [HttpGet("admin")]
         public async Task<ActionResult<IEnumerable<UserDto>>> GetAllUsers()
         {
             var users = await _userManagementService.GetAllUsersAsync();
             return Ok(users);
         }
 
-        [HttpPut("admin/users/{id}/role")]
+        [HttpPut("admin/{id}/role")]
         public async Task<IActionResult> ChangeUserRole(string id, [FromBody] string newRole)
         {
             var result = await _userManagementService.ChangeUserRoleAsync(id, newRole);
@@ -45,7 +45,7 @@ namespace ApiGateway.Controllers
             return NoContent();
         }
 
-        [HttpDelete("admin/users/{id}")]
+        [HttpDelete("admin/{id}")]
         public async Task<IActionResult> DeleteUser(string id)
         {
             var result = await _userManagementService.DeleteUserAsync(id);

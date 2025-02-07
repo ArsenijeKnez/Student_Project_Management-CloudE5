@@ -1,20 +1,40 @@
 <script setup>
-import { ref, defineEmits } from 'vue';
+import { ref, watch, defineProps, defineEmits } from 'vue';
 import InputField from '@/components/InputField.vue';
 
-const emit = defineEmits(['userCreated']);
+const props = defineProps({
+  user: {
+    type: Object,
+    required: true,
+  },
+});
+
+const emit = defineEmits(['userUpdated', 'cancel']);
+
+const id = ref(props.user.id)
+const username = ref(props.user.username);
+const email = ref(props.user.email);
+const password = ref(props.user.password); 
+const firstName = ref(props.user.firstName);
+const lastName = ref(props.user.lastName);
+const role = ref(props.user.role);
 const errorMessage = ref('');
 
-const username = ref('');
-const email = ref('');
-const password = ref('');
-const firstName = ref('');
-const lastName = ref('');
-const role = ref('');
+watch(
+  () => props.user,
+  (newUser) => {
+    username.value = newUser.username;
+    email.value = newUser.email;
+    firstName.value = newUser.firstName;
+    password.value = newUser.password
+    lastName.value = newUser.lastName;
+    role.value = newUser.role;
+  }
+);
 
-const handleNewUser = () => {
-  if (!username.value || !email.value || !password.value || !firstName.value || !lastName.value || !role.value) {
-    errorMessage.value = 'Please fill in all fields.';
+const handleUpdateUser = () => {
+  if (!username.value || !email.value || !firstName.value || !password.value || !lastName.value || !role.value) {
+    errorMessage.value = 'Please fill in all required fields.';
     return;
   }
   if (!email.value.includes('@')) {
@@ -26,24 +46,25 @@ const handleNewUser = () => {
     return;
   }
   
-  const newUser = {
+  const updatedUser = {
+    id: id.value,
     username: username.value,
     email: email.value,
     password: password.value,
     firstName: firstName.value,
     lastName: lastName.value,
-    role: role.value
+    role: role.value,
   };
   
-  emit('userCreated', newUser);
+  emit('userUpdated', updatedUser);
 };
 </script>
 
 <template>
-  <form @submit.prevent="handleNewUser">
+  <form @submit.prevent="handleUpdateUser">
     <InputField v-model="username" label="Username" type="text" required />
     <InputField v-model="email" label="Email" type="email" required />
-    <InputField v-model="password" label="Password" type="password" required />
+    <InputField v-model="password" label="Password" type="password" />
     <InputField v-model="firstName" label="First Name" type="text" required />
     <InputField v-model="lastName" label="Last Name" type="text" required />
     
@@ -54,9 +75,10 @@ const handleNewUser = () => {
       <option value="Student">Student</option>
       <option value="Professor">Professor</option>
     </select>
-
+    
     <p v-if="errorMessage" class="error-message">{{ errorMessage }}</p>
-    <button type="submit">Create</button>
+    <button type="submit">Update</button>
+    <button type="button" @click="$emit('cancel')">Cancel</button>
   </form>
 </template>
 

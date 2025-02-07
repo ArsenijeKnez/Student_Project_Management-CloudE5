@@ -5,15 +5,17 @@ export default {
   async register(userData) {
     try {
       const formData = new FormData();
-      formData.append("username", userData.username);
-      formData.append("email", userData.email);
-      formData.append("passwordHash", userData.password);
-      formData.append("role", userData.role);
+      formData.append("Username", userData.username);
+      formData.append("Email", userData.email);
+      formData.append("Password", userData.password);
+      formData.append("FirstName", userData.firstName);
+      formData.append("LastName", userData.lastName);
+      formData.append("Role", userData.role);
 
       const response = await axios.post(`${API_URL}/register`, formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
-
+      console.log(response);
       return response;
     } catch (error) {
       return error.response?.data || { success: false, message: "Registration failed" };

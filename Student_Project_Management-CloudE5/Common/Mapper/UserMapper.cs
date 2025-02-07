@@ -16,6 +16,7 @@ namespace Common.Mapper
 
             return new UserDto
             {
+                Id = user.Id,
                 Username = user.Username,
                 Email = user.Email,
                 Password = user.PasswordHash, 
@@ -31,6 +32,7 @@ namespace Common.Mapper
 
             return new User
             {
+                Id = userDto.Id,
                 Username = userDto.Username,
                 Email = userDto.Email,
                 PasswordHash = userDto.Password,
