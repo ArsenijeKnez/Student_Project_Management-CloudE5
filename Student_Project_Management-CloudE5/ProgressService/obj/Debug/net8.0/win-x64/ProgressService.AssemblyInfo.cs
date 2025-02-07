@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ProgressService")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9507936393d9da3ec1eec0b2482819a88edd5151")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f35cab150215c47340cfbdaff50c4d7bce8e32a7")]
 [assembly: System.Reflection.AssemblyProductAttribute("ProgressService")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ProgressService")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
