@@ -9,19 +9,19 @@ const router = createRouter({
     {
       path: '/admin/users',
       name: 'user-management',
-      component: () => import('../views/UserManagementView.vue'),
+      component: () => import('../views/admin/UserManagementView.vue'),
       meta: { requiresAuth: true, role: 'Admin' }, 
     },
     {
       path: '/admin/settings',
       name: 'system-settings',
-      component: () => import('../views/SystemSettingsView.vue'),
+      component: () => import('../views/admin/SystemSettingsView.vue'),
       meta: { requiresAuth: true, role: 'Admin' },
     },
     {
       path: '/admin/reports',
       name: 'reports',
-      component: () => import('../views/ReportsView.vue'),
+      component: () => import('../views/admin/ReportsView.vue'),
       meta: { requiresAuth: true, role: 'Admin' },
     },
   ],
