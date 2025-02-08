@@ -6,6 +6,7 @@ const router = useRouter();
 const user = ref(JSON.parse(sessionStorage.getItem('user')) || null);
 
 const isAdmin = computed(() => user.value?.role === 'Admin');
+const isStudent = computed(() => user.value?.role === 'Student');
 
 const logout = () => {
   sessionStorage.removeItem('user');
@@ -24,6 +25,11 @@ const logout = () => {
         <RouterLink to="/admin/users">Manage Users</RouterLink>
         <RouterLink to="/admin/settings">System Settings</RouterLink>
         <RouterLink to="/admin/reports">View Reports</RouterLink>
+      </template>
+      <template v-if="isStudent">
+        <RouterLink to="/student/upload">Upload Work</RouterLink>
+        <RouterLink to="/student/update">Update Work</RouterLink>
+        <RouterLink to="/student/status">Status</RouterLink>
       </template>
       <button @click="logout" v-if="user">Logout</button>
     </nav>

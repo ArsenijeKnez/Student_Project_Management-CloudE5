@@ -6,6 +6,7 @@ const router = createRouter({
   routes: [
     { path: '/', name: 'home', component: HomeView },
     { path: '/login', name: 'login', component: () => import('../views/LoginView.vue') },
+
     {
       path: '/admin/users',
       name: 'user-management',
@@ -23,6 +24,25 @@ const router = createRouter({
       name: 'reports',
       component: () => import('../views/admin/ReportsView.vue'),
       meta: { requiresAuth: true, role: 'Admin' },
+    },
+
+    {
+      path: '/student/upload',
+      name: 'upload-work',
+      component: () => import('../views/student/UploadWorkView.vue'),
+      meta: { requiresAuth: true, role: 'Student' }, 
+    },
+    {
+      path: '/student/update',
+      name: 'update-work',
+      component: () => import('../views/student/UpdateWorkView.vue'),
+      meta: { requiresAuth: true, role: 'Student' },
+    },
+    {
+      path: '/student/status',
+      name: 'status-reports',
+      component: () => import('../views/student/WorkStatusView.vue'),
+      meta: { requiresAuth: true, role: 'Student' },
     },
   ],
 });

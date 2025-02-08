@@ -1,7 +1,7 @@
 <script setup>
 import { ref, onMounted } from 'vue';
-import NewUserForm from '@/components/NewUserForm.vue';
-import EditUserForm from '@/components/EditUserForm.vue';
+import NewUserForm from '@/components/admin/NewUserForm.vue';
+import EditUserForm from '@/components/admin/EditUserForm.vue';
 import UserService from '@/services/userService.js';
 import AuthService from '@/services/authService.js';
 
