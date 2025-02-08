@@ -186,7 +186,9 @@ D:\CLOUDMaster\Student_Project_Management-CloudE5\pkg\Debug\UserManagementServic
 D:\CLOUDMaster\Student_Project_Management-CloudE5\pkg\Debug\UserManagementServicePkg\Code\mscorrc.dll
 D:\CLOUDMaster\Student_Project_Management-CloudE5\pkg\Debug\UserManagementServicePkg\Code\msquic.dll
 D:\CLOUDMaster\Student_Project_Management-CloudE5\pkg\Debug\UserManagementServicePkg\Code\DnsClient.dll
+D:\CLOUDMaster\Student_Project_Management-CloudE5\pkg\Debug\UserManagementServicePkg\Code\Microsoft.AspNetCore.Http.Features.dll
 D:\CLOUDMaster\Student_Project_Management-CloudE5\pkg\Debug\UserManagementServicePkg\Code\Microsoft.Extensions.Logging.Abstractions.dll
+D:\CLOUDMaster\Student_Project_Management-CloudE5\pkg\Debug\UserManagementServicePkg\Code\Microsoft.Extensions.Primitives.dll
 D:\CLOUDMaster\Student_Project_Management-CloudE5\pkg\Debug\UserManagementServicePkg\Code\Microsoft.ServiceFabric.Internal.Strings.dll
 D:\CLOUDMaster\Student_Project_Management-CloudE5\pkg\Debug\UserManagementServicePkg\Code\Microsoft.ServiceFabric.Internal.dll
 D:\CLOUDMaster\Student_Project_Management-CloudE5\pkg\Debug\UserManagementServicePkg\Code\Microsoft.ServiceFabric.Preview.dll
@@ -207,6 +209,7 @@ D:\CLOUDMaster\Student_Project_Management-CloudE5\pkg\Debug\UserManagementServic
 D:\CLOUDMaster\Student_Project_Management-CloudE5\pkg\Debug\UserManagementServicePkg\Code\MongoDB.Driver.dll
 D:\CLOUDMaster\Student_Project_Management-CloudE5\pkg\Debug\UserManagementServicePkg\Code\SharpCompress.dll
 D:\CLOUDMaster\Student_Project_Management-CloudE5\pkg\Debug\UserManagementServicePkg\Code\Snappier.dll
+D:\CLOUDMaster\Student_Project_Management-CloudE5\pkg\Debug\UserManagementServicePkg\Code\System.IO.Pipelines.dll
 D:\CLOUDMaster\Student_Project_Management-CloudE5\pkg\Debug\UserManagementServicePkg\Code\ZstdSharp.dll
 D:\CLOUDMaster\Student_Project_Management-CloudE5\pkg\Debug\UserManagementServicePkg\Code\Common.dll
 D:\CLOUDMaster\Student_Project_Management-CloudE5\pkg\Debug\UserManagementServicePkg\Code\Common.pdb

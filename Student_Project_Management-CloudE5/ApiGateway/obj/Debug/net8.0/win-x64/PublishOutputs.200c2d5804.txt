@@ -328,7 +328,11 @@ D:\CLOUDMaster\Student_Project_Management-CloudE5\ApiGateway\obj\Debug\net8.0\wi
 D:\CLOUDMaster\Student_Project_Management-CloudE5\ApiGateway\obj\Debug\net8.0\win-x64\PubTmp\Out\mscorrc.dll
 D:\CLOUDMaster\Student_Project_Management-CloudE5\ApiGateway\obj\Debug\net8.0\win-x64\PubTmp\Out\msquic.dll
 D:\CLOUDMaster\Student_Project_Management-CloudE5\ApiGateway\obj\Debug\net8.0\win-x64\PubTmp\Out\aspnetcorev2_inprocess.dll
+D:\CLOUDMaster\Student_Project_Management-CloudE5\ApiGateway\obj\Debug\net8.0\win-x64\PubTmp\Out\Azure.Core.dll
+D:\CLOUDMaster\Student_Project_Management-CloudE5\ApiGateway\obj\Debug\net8.0\win-x64\PubTmp\Out\Azure.Storage.Blobs.dll
+D:\CLOUDMaster\Student_Project_Management-CloudE5\ApiGateway\obj\Debug\net8.0\win-x64\PubTmp\Out\Azure.Storage.Common.dll
 D:\CLOUDMaster\Student_Project_Management-CloudE5\ApiGateway\obj\Debug\net8.0\win-x64\PubTmp\Out\DnsClient.dll
+D:\CLOUDMaster\Student_Project_Management-CloudE5\ApiGateway\obj\Debug\net8.0\win-x64\PubTmp\Out\Microsoft.Bcl.AsyncInterfaces.dll
 D:\CLOUDMaster\Student_Project_Management-CloudE5\ApiGateway\obj\Debug\net8.0\win-x64\PubTmp\Out\Microsoft.OpenApi.dll
 D:\CLOUDMaster\Student_Project_Management-CloudE5\ApiGateway\obj\Debug\net8.0\win-x64\PubTmp\Out\Microsoft.ServiceFabric.Internal.Strings.dll
 D:\CLOUDMaster\Student_Project_Management-CloudE5\ApiGateway\obj\Debug\net8.0\win-x64\PubTmp\Out\Microsoft.ServiceFabric.Internal.dll
@@ -355,6 +359,9 @@ D:\CLOUDMaster\Student_Project_Management-CloudE5\ApiGateway\obj\Debug\net8.0\wi
 D:\CLOUDMaster\Student_Project_Management-CloudE5\ApiGateway\obj\Debug\net8.0\win-x64\PubTmp\Out\Swashbuckle.AspNetCore.Swagger.dll
 D:\CLOUDMaster\Student_Project_Management-CloudE5\ApiGateway\obj\Debug\net8.0\win-x64\PubTmp\Out\Swashbuckle.AspNetCore.SwaggerGen.dll
 D:\CLOUDMaster\Student_Project_Management-CloudE5\ApiGateway\obj\Debug\net8.0\win-x64\PubTmp\Out\Swashbuckle.AspNetCore.SwaggerUI.dll
+D:\CLOUDMaster\Student_Project_Management-CloudE5\ApiGateway\obj\Debug\net8.0\win-x64\PubTmp\Out\System.ClientModel.dll
+D:\CLOUDMaster\Student_Project_Management-CloudE5\ApiGateway\obj\Debug\net8.0\win-x64\PubTmp\Out\System.IO.Hashing.dll
+D:\CLOUDMaster\Student_Project_Management-CloudE5\ApiGateway\obj\Debug\net8.0\win-x64\PubTmp\Out\System.Memory.Data.dll
 D:\CLOUDMaster\Student_Project_Management-CloudE5\ApiGateway\obj\Debug\net8.0\win-x64\PubTmp\Out\ZstdSharp.dll
 D:\CLOUDMaster\Student_Project_Management-CloudE5\ApiGateway\obj\Debug\net8.0\win-x64\PubTmp\Out\Common.dll
 D:\CLOUDMaster\Student_Project_Management-CloudE5\ApiGateway\obj\Debug\net8.0\win-x64\PubTmp\Out\Common.pdb

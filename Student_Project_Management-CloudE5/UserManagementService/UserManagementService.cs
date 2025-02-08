@@ -13,6 +13,7 @@ using UserManagementService.UserDB;
 using Common.Model;
 using Microsoft.ServiceFabric.Services.Remoting.Runtime;
 using Common.Mapper;
+using Common.RequestForm;
 
 namespace UserManagementService
 {
@@ -34,12 +35,12 @@ namespace UserManagementService
             var existingEmail = await _userService.GetUserByUsernameOrEmailAsync(request.Email);
             if (existingUsername != null || existingEmail != null)
             {
-                return new ResultMessage { Success = false, Message = "User already exists." };
+                return new ResultMessage(false,"User already exists.");
             }
 
             await _userService.AddUserAsync(UserMapper.ToEntity(request));
 
-            return new ResultMessage { Success = true, Message = "User registered successfully." };
+            return new ResultMessage(true, "User registered successfully." );
         }
 
         public async Task<UserDto> LoginAsync(LoginUser request)
@@ -61,7 +62,7 @@ namespace UserManagementService
         public async Task<ResultMessage> UpdateUserAsync(string id, UserDto updatedUser)
         {
             bool result = await _userService.UpdateUserAsync(id, UserMapper.ToEntity(updatedUser));
-            return result? new ResultMessage { Success = true, Message = "User updated" } : new ResultMessage { Success = false, Message = "Error updating user" };
+            return result? new ResultMessage(true, "User updated") : new ResultMessage(false, "Error updating user" );
         }
 
         public async Task<List<UserDto>> GetAllUsersAsync()
@@ -72,12 +73,12 @@ namespace UserManagementService
 
         public async Task<ResultMessage> ChangeUserRoleAsync(string id, string newRole)
         {
-            return await _userService.ChangeUserRoleAsync(id, newRole)? new ResultMessage { Success = true, Message = "Role changed" } : new ResultMessage { Success = false, Message = "Error changing role" };
+            return await _userService.ChangeUserRoleAsync(id, newRole)? new ResultMessage (true, "Role changed" ) : new ResultMessage(false, "Error changing role" );
         }
 
         public async Task<ResultMessage> DeleteUserAsync(string id)
         {
-            return await _userService.DeleteUserAsync(id)? new ResultMessage { Success = true, Message = "User deleted"} : new ResultMessage { Success = false, Message = "Error deleting a user" };
+            return await _userService.DeleteUserAsync(id)? new ResultMessage(true, "User deleted") : new ResultMessage(false, "Error deleting a user" );
         }
 
 

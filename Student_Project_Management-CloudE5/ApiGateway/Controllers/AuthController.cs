@@ -8,6 +8,7 @@ using Common.Interface;
 using Microsoft.ServiceFabric.Services.Communication.Client;
 using Microsoft.ServiceFabric.Services.Remoting.Client;
 using Common.Dto;
+using Common.RequestForm;
 
 namespace ApiGateway.Controllers
 {
@@ -29,7 +30,7 @@ namespace ApiGateway.Controllers
         public async Task<IActionResult> Login([FromForm] LoginUser request)
         {
             var result = await _userService.LoginAsync(request);
-            return result != null ? Ok(result) : Unauthorized(new ResultMessage {Success = false, Message = "Invalid credentials" });
+            return result != null ? Ok(result) : Unauthorized(new ResultMessage(false, "Invalid credentials"));
         }
 
     }

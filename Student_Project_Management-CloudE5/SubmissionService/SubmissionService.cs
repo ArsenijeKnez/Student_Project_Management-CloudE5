@@ -4,65 +4,104 @@ using System.Fabric;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using Common.Dto;
+using Common.Enum;
+using Common.Interface;
+using Common.Model;
 using Microsoft.ServiceFabric.Data.Collections;
 using Microsoft.ServiceFabric.Services.Communication.Runtime;
+using Microsoft.ServiceFabric.Services.Remoting.Runtime;
 using Microsoft.ServiceFabric.Services.Runtime;
+using MongoDB.Bson;
+using SubmissionService.SubmissionDB;
 
 namespace SubmissionService
 {
     /// <summary>
     /// An instance of this class is created for each service replica by the Service Fabric runtime.
     /// </summary>
-    internal sealed class SubmissionService : StatefulService
+    internal sealed class SubmissionService : StatefulService, ISubmissionService
     {
+        private readonly StudentWorksService _submissionService;
         public SubmissionService(StatefulServiceContext context)
             : base(context)
-        { }
-
-        /// <summary>
-        /// Optional override to create listeners (e.g., HTTP, Service Remoting, WCF, etc.) for this service replica to handle client or user requests.
-        /// </summary>
-        /// <remarks>
-        /// For more information on service communication, see https://aka.ms/servicefabricservicecommunication
-        /// </remarks>
-        /// <returns>A collection of listeners.</returns>
-        protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
         {
-            return new ServiceReplicaListener[0];
+            _submissionService = new StudentWorksService("mongodb://localhost:27017", "StudentWorkDatabase", "Works");
         }
-
-        /// <summary>
-        /// This is the main entry point for your service replica.
-        /// This method executes when this replica of your service becomes primary and has write status.
-        /// </summary>
-        /// <param name="cancellationToken">Canceled when Service Fabric needs to shut down this service replica.</param>
-        protected override async Task RunAsync(CancellationToken cancellationToken)
+        public async Task<FeedbackDto> GetFeedback(string studentWorkId)
         {
-            // TODO: Replace the following sample code with your own logic 
-            //       or remove this RunAsync override if it's not needed in your service.
+            var work = await _submissionService.GetWorkByIdAsync(studentWorkId);
+            if (work == null || work.Feedback == null) return null;
 
-            var myDictionary = await this.StateManager.GetOrAddAsync<IReliableDictionary<string, long>>("myDictionary");
-
-            while (true)
+            return new FeedbackDto
             {
-                cancellationToken.ThrowIfCancellationRequested();
-
-                using (var tx = this.StateManager.CreateTransaction())
-                {
-                    var result = await myDictionary.TryGetValueAsync(tx, "Counter");
-
-                    ServiceEventSource.Current.ServiceMessage(this.Context, "Current Counter Value: {0}",
-                        result.HasValue ? result.Value.ToString() : "Value does not exist.");
-
-                    await myDictionary.AddOrUpdateAsync(tx, "Counter", 0, (key, value) => ++value);
-
-                    // If an exception is thrown before calling CommitAsync, the transaction aborts, all changes are 
-                    // discarded, and nothing is saved to the secondary replicas.
-                    await tx.CommitAsync();
-                }
-
-                await Task.Delay(TimeSpan.FromSeconds(1), cancellationToken);
-            }
+                Score = work.Feedback.Score,
+                Errors = work.Feedback.Errors,
+                ImprovementSuggestions = work.Feedback.ImprovementSuggestions,
+                Recommendations = work.Feedback.Recommendations
+            };
         }
+
+        public async Task<List<StudentWorkStatus>> GetWorkStatus(string studentId)
+        {
+            var works = await _submissionService.GetWorksByStudentIdAsync(studentId);
+            return works.Select(w => new StudentWorkStatus
+            {
+                Title = w.Title,
+                Status = w.Status,
+                SubmissionDate = w.SubmissionDate,
+                EstimatedAnalysisCompletion = w.EstimatedAnalysisCompletion,
+            }).ToList();
+        }
+
+        public async Task<ResultMessage> UpdateWork(string fileUrl, string studentWorkId)
+        {
+            var work = await _submissionService.GetWorkByIdAsync(studentWorkId);
+            if (work == null) return new ResultMessage(false, "Work not found");
+
+            var newVersion = new WorkVersion
+            {
+                VersionNumber = work.Versions.Count + 1,
+                FileUrl = fileUrl,
+                UploadedAt = DateTime.UtcNow
+            };
+
+            work.Versions.Add(newVersion);
+            work.Status = WorkStatus.UnderAnalysis;
+
+            var success = await _submissionService.UpdateWorkAsync(work.Id, work);
+            return success ? new ResultMessage(true, "Work updated successfully") : new ResultMessage(false, "Failed to update work");
+        }
+
+        public async Task<ResultMessage> UploadWork(string studentId, string fileUrl, string title)
+        {
+            var newWork = new StudentWork
+            {
+                Id = ObjectId.GenerateNewId().ToString(),
+                StudentId = studentId,
+                Title = title,
+                Versions = new List<WorkVersion>
+            {
+                new WorkVersion
+                {
+                    VersionNumber = 1,
+                    FileUrl = fileUrl,
+                    UploadedAt = DateTime.UtcNow
+                }
+            },
+                Status = WorkStatus.Submitted,
+                SubmissionDate = DateTime.UtcNow,
+                EstimatedAnalysisCompletion = null,
+                Feedback = null
+            };
+
+            await _submissionService.AddWorkAsync(newWork);
+            return new ResultMessage(true, "Work submitted successfully");
+        }
+
+
+        protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners() => this.CreateServiceRemotingReplicaListeners();
+
+
     }
 }

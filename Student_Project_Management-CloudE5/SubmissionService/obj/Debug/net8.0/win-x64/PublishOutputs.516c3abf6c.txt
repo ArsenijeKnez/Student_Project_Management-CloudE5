@@ -185,6 +185,10 @@ D:\CLOUDMaster\Student_Project_Management-CloudE5\pkg\Debug\SubmissionServicePkg
 D:\CLOUDMaster\Student_Project_Management-CloudE5\pkg\Debug\SubmissionServicePkg\Code\mscordbi.dll
 D:\CLOUDMaster\Student_Project_Management-CloudE5\pkg\Debug\SubmissionServicePkg\Code\mscorrc.dll
 D:\CLOUDMaster\Student_Project_Management-CloudE5\pkg\Debug\SubmissionServicePkg\Code\msquic.dll
+D:\CLOUDMaster\Student_Project_Management-CloudE5\pkg\Debug\SubmissionServicePkg\Code\DnsClient.dll
+D:\CLOUDMaster\Student_Project_Management-CloudE5\pkg\Debug\SubmissionServicePkg\Code\Microsoft.AspNetCore.Http.Features.dll
+D:\CLOUDMaster\Student_Project_Management-CloudE5\pkg\Debug\SubmissionServicePkg\Code\Microsoft.Extensions.Logging.Abstractions.dll
+D:\CLOUDMaster\Student_Project_Management-CloudE5\pkg\Debug\SubmissionServicePkg\Code\Microsoft.Extensions.Primitives.dll
 D:\CLOUDMaster\Student_Project_Management-CloudE5\pkg\Debug\SubmissionServicePkg\Code\Microsoft.ServiceFabric.Internal.Strings.dll
 D:\CLOUDMaster\Student_Project_Management-CloudE5\pkg\Debug\SubmissionServicePkg\Code\Microsoft.ServiceFabric.Internal.dll
 D:\CLOUDMaster\Student_Project_Management-CloudE5\pkg\Debug\SubmissionServicePkg\Code\Microsoft.ServiceFabric.Preview.dll
@@ -197,4 +201,15 @@ D:\CLOUDMaster\Student_Project_Management-CloudE5\pkg\Debug\SubmissionServicePkg
 D:\CLOUDMaster\Student_Project_Management-CloudE5\pkg\Debug\SubmissionServicePkg\Code\Microsoft.ServiceFabric.ReliableCollection.Interop.dll
 D:\CLOUDMaster\Student_Project_Management-CloudE5\pkg\Debug\SubmissionServicePkg\Code\Microsoft.ServiceFabric.Data.Interfaces.dll
 D:\CLOUDMaster\Student_Project_Management-CloudE5\pkg\Debug\SubmissionServicePkg\Code\Microsoft.ServiceFabric.Diagnostics.dll
+D:\CLOUDMaster\Student_Project_Management-CloudE5\pkg\Debug\SubmissionServicePkg\Code\Microsoft.ServiceFabric.FabricTransport.V2.dll
+D:\CLOUDMaster\Student_Project_Management-CloudE5\pkg\Debug\SubmissionServicePkg\Code\Microsoft.ServiceFabric.FabricTransport.dll
 D:\CLOUDMaster\Student_Project_Management-CloudE5\pkg\Debug\SubmissionServicePkg\Code\Microsoft.ServiceFabric.Services.dll
+D:\CLOUDMaster\Student_Project_Management-CloudE5\pkg\Debug\SubmissionServicePkg\Code\Microsoft.ServiceFabric.Services.Remoting.dll
+D:\CLOUDMaster\Student_Project_Management-CloudE5\pkg\Debug\SubmissionServicePkg\Code\MongoDB.Bson.dll
+D:\CLOUDMaster\Student_Project_Management-CloudE5\pkg\Debug\SubmissionServicePkg\Code\MongoDB.Driver.dll
+D:\CLOUDMaster\Student_Project_Management-CloudE5\pkg\Debug\SubmissionServicePkg\Code\SharpCompress.dll
+D:\CLOUDMaster\Student_Project_Management-CloudE5\pkg\Debug\SubmissionServicePkg\Code\Snappier.dll
+D:\CLOUDMaster\Student_Project_Management-CloudE5\pkg\Debug\SubmissionServicePkg\Code\System.IO.Pipelines.dll
+D:\CLOUDMaster\Student_Project_Management-CloudE5\pkg\Debug\SubmissionServicePkg\Code\ZstdSharp.dll
+D:\CLOUDMaster\Student_Project_Management-CloudE5\pkg\Debug\SubmissionServicePkg\Code\Common.dll
+D:\CLOUDMaster\Student_Project_Management-CloudE5\pkg\Debug\SubmissionServicePkg\Code\Common.pdb

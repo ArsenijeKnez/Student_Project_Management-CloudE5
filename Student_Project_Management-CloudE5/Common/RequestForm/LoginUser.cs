@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Common.Dto
+namespace Common.RequestForm
 {
     public class LoginUser
     {

@@ -26,7 +26,7 @@ namespace ApiGateway.BlobStorage
 
         public BlobStorageService()
         {
-            string connectionString = "DefaultEndpointsProtocol=https;AccountName=yourAccountName;AccountKey=yourAccountKey;EndpointSuffix=core.windows.net";
+            string connectionString = "UseDevelopmentStorage=true;";
             string containerName = "student-uploads";
 
             _containerClient = new BlobContainerClient(connectionString, containerName);

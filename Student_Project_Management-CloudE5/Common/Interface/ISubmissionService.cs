@@ -1,13 +1,19 @@
-﻿using Microsoft.ServiceFabric.Services.Remoting;
+﻿using Common.Dto;
+using Common.Model;
+using Microsoft.ServiceFabric.Services.Remoting;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Common.Interface
+namespace Common.Interface 
 {
     public interface ISubmissionService : IService
     {
+        Task<ResultMessage> UploadWork(string studentId, string fileUrl, string title);
+        Task<ResultMessage> UpdateWork(string fileUrl, string studentWorkId);
+        Task<List<StudentWorkStatus>> GetWorkStatus(string studentId);
+        Task<FeedbackDto> GetFeedback(string studentWorkId);
     }
 }
