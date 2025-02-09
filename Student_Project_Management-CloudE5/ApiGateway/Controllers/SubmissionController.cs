@@ -24,12 +24,12 @@ namespace ApiGateway.Controllers
         {
             IFormFile file = work.file;
             if (file == null || file.Length == 0)
-                return BadRequest("Invalid file.");
+                return BadRequest(new ResultMessage(false, "Invalid file"));
 
             using var stream = file.OpenReadStream();
             var fileUrl = await _blobStorageService.UploadFileAsync(stream, file.FileName, file.ContentType);
 
-            var result = await _submissionService.UploadWork(work.studentId, fileUrl, work.title);
+            var result = await _submissionService.UploadWork(work.studentId, fileUrl, work.title); //Exeption serializ
             return result.Success ? Ok(result) : BadRequest(result);
         }
 

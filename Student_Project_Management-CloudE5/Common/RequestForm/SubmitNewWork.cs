@@ -9,10 +9,10 @@ namespace Common.RequestForm
 {
     public class SubmitNewWork
     {
-        public IFormFile file;
+        public IFormFile file { get; set; }
 
-        public string title;
+        public string title { get; set; }
 
-        public string studentId;
+        public string studentId { get; set; }
     }
 }
