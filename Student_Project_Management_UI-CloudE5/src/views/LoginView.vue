@@ -11,7 +11,7 @@ const handleLogin = async (userData) => {
   const response = await AuthService.login(userData);
   console.log(response);
   if (response.status == 200) {
-    console.log("aaa");
+
     sessionStorage.setItem('user', JSON.stringify(response.data));
     router.push('/').then(() => {
   window.location.reload();

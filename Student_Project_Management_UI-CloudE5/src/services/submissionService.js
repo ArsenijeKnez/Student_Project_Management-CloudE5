@@ -9,7 +9,7 @@ export default {
       formData.append("file", workData.file);
       formData.append("studentId", workData.studentId);
       formData.append("title", workData.title);
-
+      console.log(workData);
       const response = await axios.post(`${API_URL}/work`, formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
