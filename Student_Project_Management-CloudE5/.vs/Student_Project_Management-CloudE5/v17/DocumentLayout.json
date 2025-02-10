@@ -3,12 +3,24 @@
   "WorkspaceRootPath": "D:\\CLOUDMaster\\Student_Project_Management-CloudE5\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{62F1A480-0B40-4051-84F8-BEF5BB293519}|ApiGateway\\ApiGateway.csproj|d:\\cloudmaster\\student_project_management-cloude5\\apigateway\\blobstorage\\blobstorageservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{62F1A480-0B40-4051-84F8-BEF5BB293519}|ApiGateway\\ApiGateway.csproj|solutionrelative:apigateway\\blobstorage\\blobstorageservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5A0DFF6A-70E6-42DE-BB1C-D5E6E1CC029E}|Common\\Common.csproj|d:\\cloudmaster\\student_project_management-cloude5\\common\\enum\\workstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A0DFF6A-70E6-42DE-BB1C-D5E6E1CC029E}|Common\\Common.csproj|solutionrelative:common\\enum\\workstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A0DFF6A-70E6-42DE-BB1C-D5E6E1CC029E}|Common\\Common.csproj|d:\\cloudmaster\\student_project_management-cloude5\\common\\model\\workversion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A0DFF6A-70E6-42DE-BB1C-D5E6E1CC029E}|Common\\Common.csproj|solutionrelative:common\\model\\workversion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A5F254A7-EA4D-46D8-B171-FD692409082D}|SubmissionService\\SubmissionService.csproj|d:\\cloudmaster\\student_project_management-cloude5\\submissionservice\\submissionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A5F254A7-EA4D-46D8-B171-FD692409082D}|SubmissionService\\SubmissionService.csproj|solutionrelative:submissionservice\\submissionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{62F1A480-0B40-4051-84F8-BEF5BB293519}|ApiGateway\\ApiGateway.csproj|d:\\cloudmaster\\student_project_management-cloude5\\apigateway\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{62F1A480-0B40-4051-84F8-BEF5BB293519}|ApiGateway\\ApiGateway.csproj|solutionrelative:apigateway\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B2CE9009-2C51-4BFB-8DE1-F21D40310D8A}|UserManagementService\\UserManagementService.csproj|d:\\cloudmaster\\student_project_management-cloude5\\usermanagementservice\\usermanagementservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B2CE9009-2C51-4BFB-8DE1-F21D40310D8A}|UserManagementService\\UserManagementService.csproj|solutionrelative:usermanagementservice\\usermanagementservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A5F254A7-EA4D-46D8-B171-FD692409082D}|SubmissionService\\SubmissionService.csproj|d:\\cloudmaster\\student_project_management-cloude5\\submissionservice\\submissiondb\\studentworksservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -23,28 +35,16 @@
       "RelativeMoniker": "D:0:0:{5A0DFF6A-70E6-42DE-BB1C-D5E6E1CC029E}|Common\\Common.csproj|solutionrelative:common\\dto\\resultmessage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{62F1A480-0B40-4051-84F8-BEF5BB293519}|ApiGateway\\ApiGateway.csproj|d:\\cloudmaster\\student_project_management-cloude5\\apigateway\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{62F1A480-0B40-4051-84F8-BEF5BB293519}|ApiGateway\\ApiGateway.csproj|solutionrelative:apigateway\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B2CE9009-2C51-4BFB-8DE1-F21D40310D8A}|UserManagementService\\UserManagementService.csproj|d:\\cloudmaster\\student_project_management-cloude5\\usermanagementservice\\usermanagementservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B2CE9009-2C51-4BFB-8DE1-F21D40310D8A}|UserManagementService\\UserManagementService.csproj|solutionrelative:usermanagementservice\\usermanagementservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5A0DFF6A-70E6-42DE-BB1C-D5E6E1CC029E}|Common\\Common.csproj|d:\\cloudmaster\\student_project_management-cloude5\\common\\enum\\workstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5A0DFF6A-70E6-42DE-BB1C-D5E6E1CC029E}|Common\\Common.csproj|solutionrelative:common\\enum\\workstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5A0DFF6A-70E6-42DE-BB1C-D5E6E1CC029E}|Common\\Common.csproj|d:\\cloudmaster\\student_project_management-cloude5\\common\\model\\workversion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5A0DFF6A-70E6-42DE-BB1C-D5E6E1CC029E}|Common\\Common.csproj|solutionrelative:common\\model\\workversion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5A0DFF6A-70E6-42DE-BB1C-D5E6E1CC029E}|Common\\Common.csproj|d:\\cloudmaster\\student_project_management-cloude5\\common\\interface\\isubmissionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5A0DFF6A-70E6-42DE-BB1C-D5E6E1CC029E}|Common\\Common.csproj|solutionrelative:common\\interface\\isubmissionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{62F1A480-0B40-4051-84F8-BEF5BB293519}|ApiGateway\\ApiGateway.csproj|d:\\cloudmaster\\student_project_management-cloude5\\apigateway\\blobstorage\\blobstorageservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{62F1A480-0B40-4051-84F8-BEF5BB293519}|ApiGateway\\ApiGateway.csproj|solutionrelative:apigateway\\blobstorage\\blobstorageservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{5A0DFF6A-70E6-42DE-BB1C-D5E6E1CC029E}|Common\\Common.csproj|d:\\cloudmaster\\student_project_management-cloude5\\common\\requestform\\submitnewwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5A0DFF6A-70E6-42DE-BB1C-D5E6E1CC029E}|Common\\Common.csproj|solutionrelative:common\\requestform\\submitnewwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A0DFF6A-70E6-42DE-BB1C-D5E6E1CC029E}|Common\\Common.csproj|d:\\cloudmaster\\student_project_management-cloude5\\common\\interface\\isubmissionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A0DFF6A-70E6-42DE-BB1C-D5E6E1CC029E}|Common\\Common.csproj|solutionrelative:common\\interface\\isubmissionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{5A0DFF6A-70E6-42DE-BB1C-D5E6E1CC029E}|Common\\Common.csproj|d:\\cloudmaster\\student_project_management-cloude5\\common\\dto\\studentworkdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -62,7 +62,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 19,
           "Children": [
             {
               "$type": "Bookmark",
@@ -94,88 +94,105 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 9,
+              "Title": "SubmitNewWork.cs",
+              "DocumentMoniker": "D:\\CLOUDMaster\\Student_Project_Management-CloudE5\\Common\\RequestForm\\SubmitNewWork.cs",
+              "RelativeDocumentMoniker": "Common\\RequestForm\\SubmitNewWork.cs",
+              "ToolTip": "D:\\CLOUDMaster\\Student_Project_Management-CloudE5\\Common\\RequestForm\\SubmitNewWork.cs",
+              "RelativeToolTip": "Common\\RequestForm\\SubmitNewWork.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-09T19:43:42.543Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
               "Title": "BlobStorageService.cs",
               "DocumentMoniker": "D:\\CLOUDMaster\\Student_Project_Management-CloudE5\\ApiGateway\\BlobStorage\\BlobStorageService.cs",
               "RelativeDocumentMoniker": "ApiGateway\\BlobStorage\\BlobStorageService.cs",
               "ToolTip": "D:\\CLOUDMaster\\Student_Project_Management-CloudE5\\ApiGateway\\BlobStorage\\BlobStorageService.cs",
               "RelativeToolTip": "ApiGateway\\BlobStorage\\BlobStorageService.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAArwBIAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAnwBgAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-08T13:34:46.562Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-08T13:34:46.562Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 7,
               "Title": "ResultMessage.cs",
               "DocumentMoniker": "D:\\CLOUDMaster\\Student_Project_Management-CloudE5\\Common\\Dto\\ResultMessage.cs",
               "RelativeDocumentMoniker": "Common\\Dto\\ResultMessage.cs",
               "ToolTip": "D:\\CLOUDMaster\\Student_Project_Management-CloudE5\\Common\\Dto\\ResultMessage.cs",
               "RelativeToolTip": "Common\\Dto\\ResultMessage.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-08T12:58:30.191Z"
+              "WhenOpened": "2025-02-08T12:58:30.191Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 3,
               "Title": "AuthController.cs",
               "DocumentMoniker": "D:\\CLOUDMaster\\Student_Project_Management-CloudE5\\ApiGateway\\Controllers\\AuthController.cs",
               "RelativeDocumentMoniker": "ApiGateway\\Controllers\\AuthController.cs",
               "ToolTip": "D:\\CLOUDMaster\\Student_Project_Management-CloudE5\\ApiGateway\\Controllers\\AuthController.cs",
               "RelativeToolTip": "ApiGateway\\Controllers\\AuthController.cs",
-              "ViewState": "AgIAABQAAAAAAAAAAAAswCAAAABPAAAAAAAAAA==",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAowB8AAAA2AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-08T12:57:29.415Z"
+              "WhenOpened": "2025-02-08T12:57:29.415Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 4,
               "Title": "UserManagementService.cs",
               "DocumentMoniker": "D:\\CLOUDMaster\\Student_Project_Management-CloudE5\\UserManagementService\\UserManagementService.cs",
               "RelativeDocumentMoniker": "UserManagementService\\UserManagementService.cs",
               "ToolTip": "D:\\CLOUDMaster\\Student_Project_Management-CloudE5\\UserManagementService\\UserManagementService.cs",
               "RelativeToolTip": "UserManagementService\\UserManagementService.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAAEcAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAAEcAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-08T12:54:18.983Z"
+              "WhenOpened": "2025-02-08T12:54:18.983Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "StudentWorksService.cs",
               "DocumentMoniker": "D:\\CLOUDMaster\\Student_Project_Management-CloudE5\\SubmissionService\\SubmissionDB\\StudentWorksService.cs",
               "RelativeDocumentMoniker": "SubmissionService\\SubmissionDB\\StudentWorksService.cs",
               "ToolTip": "D:\\CLOUDMaster\\Student_Project_Management-CloudE5\\SubmissionService\\SubmissionDB\\StudentWorksService.cs",
               "RelativeToolTip": "SubmissionService\\SubmissionDB\\StudentWorksService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAAwB4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-08T12:29:09.801Z"
+              "WhenOpened": "2025-02-08T12:29:09.801Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "SubmissionService.cs",
               "DocumentMoniker": "D:\\CLOUDMaster\\Student_Project_Management-CloudE5\\SubmissionService\\SubmissionService.cs",
               "RelativeDocumentMoniker": "SubmissionService\\SubmissionService.cs",
               "ToolTip": "D:\\CLOUDMaster\\Student_Project_Management-CloudE5\\SubmissionService\\SubmissionService.cs",
               "RelativeToolTip": "SubmissionService\\SubmissionService.cs",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAewBwAAABzAAAAAAAAAA==",
+              "ViewState": "AgIAACUAAAAAAAAAAAAmwC4AAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-08T12:24:58.251Z"
+              "WhenOpened": "2025-02-08T12:24:58.251Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 6,
               "Title": "SubmissionController.cs",
               "DocumentMoniker": "D:\\CLOUDMaster\\Student_Project_Management-CloudE5\\ApiGateway\\Controllers\\SubmissionController.cs",
               "RelativeDocumentMoniker": "ApiGateway\\Controllers\\SubmissionController.cs",
               "ToolTip": "D:\\CLOUDMaster\\Student_Project_Management-CloudE5\\ApiGateway\\Controllers\\SubmissionController.cs",
               "RelativeToolTip": "ApiGateway\\Controllers\\SubmissionController.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAABcAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAACoAAAAAAAAAAAAYwBoAAAAzAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-08T12:20:05.073Z"
+              "WhenOpened": "2025-02-08T12:20:05.073Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -191,31 +208,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "SubmitNewWork.cs",
-              "DocumentMoniker": "D:\\CLOUDMaster\\Student_Project_Management-CloudE5\\Common\\RequestForm\\SubmitNewWork.cs",
-              "RelativeDocumentMoniker": "Common\\RequestForm\\SubmitNewWork.cs",
-              "ToolTip": "D:\\CLOUDMaster\\Student_Project_Management-CloudE5\\Common\\RequestForm\\SubmitNewWork.cs",
-              "RelativeToolTip": "Common\\RequestForm\\SubmitNewWork.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAgAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-08T12:12:58.646Z"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 11,
               "Title": "StudentWorkDto.cs",
               "DocumentMoniker": "D:\\CLOUDMaster\\Student_Project_Management-CloudE5\\Common\\Dto\\StudentWorkDto.cs",
               "RelativeDocumentMoniker": "Common\\Dto\\StudentWorkDto.cs",
               "ToolTip": "D:\\CLOUDMaster\\Student_Project_Management-CloudE5\\Common\\Dto\\StudentWorkDto.cs",
               "RelativeToolTip": "Common\\Dto\\StudentWorkDto.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAAABQAAABCAAAAAAAAAA==",
+              "ViewState": "AgIAAAkAAAAAAAAAAIBJwBQAAABCAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-08T10:32:41.144Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "ISubmissionService.cs",
               "DocumentMoniker": "D:\\CLOUDMaster\\Student_Project_Management-CloudE5\\Common\\Interface\\ISubmissionService.cs",
               "RelativeDocumentMoniker": "Common\\Interface\\ISubmissionService.cs",
@@ -227,7 +232,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 1,
               "Title": "WorkVersion.cs",
               "DocumentMoniker": "D:\\CLOUDMaster\\Student_Project_Management-CloudE5\\Common\\Model\\WorkVersion.cs",
               "RelativeDocumentMoniker": "Common\\Model\\WorkVersion.cs",
@@ -235,19 +240,21 @@
               "RelativeToolTip": "Common\\Model\\WorkVersion.cs",
               "ViewState": "AgIAAAYAAAAAAAAAAAAAABMAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-07T17:53:13.103Z"
+              "WhenOpened": "2025-02-07T17:53:13.103Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 0,
               "Title": "WorkStatus.cs",
               "DocumentMoniker": "D:\\CLOUDMaster\\Student_Project_Management-CloudE5\\Common\\Enum\\WorkStatus.cs",
               "RelativeDocumentMoniker": "Common\\Enum\\WorkStatus.cs",
               "ToolTip": "D:\\CLOUDMaster\\Student_Project_Management-CloudE5\\Common\\Enum\\WorkStatus.cs",
               "RelativeToolTip": "Common\\Enum\\WorkStatus.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-07T17:50:11.524Z"
+              "WhenOpened": "2025-02-07T17:50:11.524Z",
+              "EditorCaption": ""
             }
           ]
         },

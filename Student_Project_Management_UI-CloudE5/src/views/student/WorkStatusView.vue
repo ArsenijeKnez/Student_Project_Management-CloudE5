@@ -1,35 +1,55 @@
 <script setup>
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
 import submissionService from "@/services/submissionService";
 
-const studentId = ref("");
-const workStatus = ref(null);
+const workStatus = ref([]);
 const message = ref("");
 
+const statusLabels = {
+  0: "Submitted",
+  1: "UnderAnalysis",
+  2: "FeedbackReady",
+  3: "Rejected",
+};
+
+const formatDate = (dateString) => {
+  if (!dateString) return "N/A";
+  return new Date(dateString).toLocaleString();
+};
+
 const fetchWorkStatus = async () => {
-  if (!studentId.value) {
+  const user = JSON.parse(sessionStorage.getItem("user"));
+  const studentId = user?.id;
+
+  if (!studentId) {
     message.value = "Student ID is required.";
     return;
   }
 
-  const response = await submissionService.getWorkStatus(studentId.value);
-  if (response.success) {
-    workStatus.value = response.data;
-  } else {
-    message.value = response.message;
+  try {
+    const response = await submissionService.getWorkStatus(studentId);
+    if (response.status === 200) {
+      workStatus.value = response.data;
+    } else {
+      message.value = response.message;
+    }
+  } catch (error) {
+    message.value = "Failed to fetch work status.";
   }
 };
+
+onMounted(fetchWorkStatus);
 </script>
 
 <template>
   <div>
     <h2>Work Status</h2>
-    <input v-model="studentId" type="text" placeholder="Student ID" />
-    <button @click="fetchWorkStatus">Get Status</button>
     <p v-if="message">{{ message }}</p>
-    <ul v-if="workStatus">
-      <li v-for="status in workStatus" :key="status.id">
-        {{ status.title }} - {{ status.status }}
+    <ul v-if="workStatus.length">
+      <li v-for="status in workStatus" :key="status.submissionDate">
+        <strong>{{ status.title }}</strong> - 
+        <span>{{ statusLabels[status.status] }}</span> - 
+        <span>Submitted: {{ formatDate(status.submissionDate) }}</span>
       </li>
     </ul>
   </div>
