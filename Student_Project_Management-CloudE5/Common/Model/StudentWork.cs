@@ -25,6 +25,9 @@ namespace Common.Model
         [BsonElement("versions")]
         public List<WorkVersion> Versions { get; set; } = new List<WorkVersion>();
 
+        [BsonElement("reverted")]
+        public uint? Reverted { get; set; }
+
         [BsonElement("status")]
         public WorkStatus Status { get; set; }
 

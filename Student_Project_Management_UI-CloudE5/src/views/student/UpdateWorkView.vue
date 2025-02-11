@@ -1,33 +1,55 @@
 <script setup>
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
+import { useRoute } from "vue-router";
 import submissionService from "@/services/submissionService";
-import FileUpload from "@/components/student/FileUpload.vue";
+import { statusLabels, formatDate } from "@/components/LabelHelper";
+import DisplayWork from "@/components/DisplayWork.vue";
+import UpdateWork from "@/components/student/UpdateWork.vue";
 
-const studentWorkId = ref("");
-const file = ref(null);
+const route = useRoute();
 const message = ref("");
+const studentWork = ref(null);
 
-const handleFileSelected = (selectedFile) => {
-  file.value = selectedFile;
-};
+const fetchStudentWork = async () => {
+  const studentWorkId = route.query.id; 
 
-const updateWork = async () => {
-  if (!file.value || !studentWorkId.value) {
-    message.value = "All fields are required.";
+  if (!studentWorkId) {
+    message.value = "Student Work ID is missing.";
     return;
   }
 
-  const response = await submissionService.updateWork(file.value, studentWorkId.value);
-  message.value = response.success ? "Update successful!" : response.message;
+  try {
+    const response = await submissionService.getStudentWork(studentWorkId);
+
+    if (response.status === 200) {
+      studentWork.value = response.data;
+
+    } else {
+      message.value = response.message || "Failed to fetch student work.";
+    }
+  } catch (error) {
+    message.value = "Failed to retrieve student work.";
+  }
 };
+
+onMounted(fetchStudentWork);
 </script>
 
 <template>
   <div>
-    <h2>Update Work</h2>
-    <input v-model="studentWorkId" type="text" placeholder="Student Work ID" />
-    <FileUpload label="Select New File" @fileSelected="handleFileSelected" />
-    <button @click="updateWork">Update</button>
-    <p>{{ message }}</p>
+    <h2>Student Work Details</h2> 
+    <p v-if="message" class="error">{{ message }}</p>
+    <div v-if="studentWork && !message">
+      <DisplayWork :studentWork="studentWork" /> 
+    </div>
+    <div v-else>Loading...</div>
+    <UpdateWork v-if="route.query && route.query.id" :studentWorkId="route.query.id"/>
   </div>
 </template>
+
+<style scoped>
+.error {
+  color: red;
+}
+</style>
+

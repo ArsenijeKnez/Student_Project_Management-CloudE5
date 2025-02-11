@@ -29,7 +29,7 @@ namespace ApiGateway.Controllers
             using var stream = file.OpenReadStream();
             var fileUrl = await _blobStorageService.UploadFileAsync(stream, file.FileName, file.ContentType);
 
-            var result = await _submissionService.UploadWork(work.studentId, fileUrl, work.title); //Exeption serializ
+            var result = await _submissionService.UploadWork(work.studentId, fileUrl, work.title);
             return result.Success ? Ok(result) : BadRequest(result);
         }
 
@@ -59,6 +59,13 @@ namespace ApiGateway.Controllers
         {
             var feedback = await _submissionService.GetFeedback(studentWorkId);
             return feedback != null ? Ok(feedback) : NotFound("Feedback not available for this work.");
+        }
+
+        [HttpGet("work/{studentWorkId}")]
+        public async Task<ActionResult<StudentWorkDto>> GetStudentWork(string studentWorkId)
+        {
+            var work = await _submissionService.GetStudentWork(studentWorkId);
+            return work != null ? Ok(work) : NotFound("No work found for the given id.");
         }
     }
 }

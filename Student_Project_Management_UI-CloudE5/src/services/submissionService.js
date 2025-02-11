@@ -52,4 +52,13 @@ export default {
       return error.response?.data || { success: false, message: "Failed to retrieve feedback" };
     }
   },
+
+  async getStudentWork(studentWorkId) {
+    try {
+      const response = await axios.get(`${API_URL}/work/${studentWorkId}`);
+      return response;
+    } catch (error) {
+      return error.response?.data || { success: false, message: "Failed to retrieve student work" };
+    }
+  },
 };

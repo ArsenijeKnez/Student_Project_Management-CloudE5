@@ -15,5 +15,6 @@ namespace Common.Interface
         Task<ResultMessage> UpdateWork(string fileUrl, string studentWorkId);
         Task<List<StudentWorkStatus>> GetWorkStatus(string studentId);
         Task<FeedbackDto> GetFeedback(string studentWorkId);
+        Task<StudentWorkDto> GetStudentWork(string studentWorkId);
     }
 }

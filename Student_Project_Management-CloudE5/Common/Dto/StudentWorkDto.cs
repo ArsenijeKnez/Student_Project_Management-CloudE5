@@ -16,6 +16,8 @@ namespace Common.Dto
         public string StudentId { get; set; }
         public string Title { get; set; }
         public List<WorkVersion> Versions { get; set; } = new List<WorkVersion>();
+
+        public uint? Reverted { get; set; }
         public WorkStatus Status { get; set; }
         public DateTime SubmissionDate { get; set; }
         public DateTime? EstimatedAnalysisCompletion { get; set; }

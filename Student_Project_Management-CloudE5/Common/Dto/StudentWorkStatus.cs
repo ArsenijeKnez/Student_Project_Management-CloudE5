@@ -10,6 +10,7 @@ namespace Common.Dto
 {
     public class StudentWorkStatus
     {
+        public string WorkId {  get; set; }
         public string Title { get; set; }
         public WorkStatus Status { get; set; }
         public DateTime SubmissionDate { get; set; }

@@ -23,6 +23,7 @@ namespace Common.Mapper
                 Status = entity.Status,
                 SubmissionDate = entity.SubmissionDate,
                 EstimatedAnalysisCompletion = entity.EstimatedAnalysisCompletion,
+                Reverted = entity.Reverted,
                 Feedback = entity.Feedback
             };
         }
@@ -37,6 +38,7 @@ namespace Common.Mapper
                 StudentId = dto.StudentId,
                 Title = dto.Title,
                 Versions = dto.Versions,
+                Reverted = dto.Reverted,
                 Status = dto.Status,
                 SubmissionDate = dto.SubmissionDate,
                 EstimatedAnalysisCompletion = dto.EstimatedAnalysisCompletion,

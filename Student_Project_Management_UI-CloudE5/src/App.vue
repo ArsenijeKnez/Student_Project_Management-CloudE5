@@ -28,8 +28,7 @@ const logout = () => {
       </template>
       <template v-if="isStudent">
         <RouterLink to="/student/upload">Upload Work</RouterLink>
-        <RouterLink to="/student/update">Update Work</RouterLink>
-        <RouterLink to="/student/status">Status</RouterLink>
+        <RouterLink to="/student/status">Work Status</RouterLink>
       </template>
       <button @click="logout" v-if="user">Logout</button>
     </nav>
