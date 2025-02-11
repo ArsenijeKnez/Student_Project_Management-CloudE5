@@ -2,13 +2,13 @@
 import { ref, onMounted } from "vue";
 import { useRoute } from "vue-router";
 import submissionService from "@/services/submissionService";
-import { statusLabels, formatDate } from "@/components/LabelHelper";
 import DisplayWork from "@/components/DisplayWork.vue";
 import UpdateWork from "@/components/student/UpdateWork.vue";
 
 const route = useRoute();
 const message = ref("");
 const studentWork = ref(null);
+const revert = ref(null);
 
 const fetchStudentWork = async () => {
   const studentWorkId = route.query.id; 
@@ -25,7 +25,7 @@ const fetchStudentWork = async () => {
       studentWork.value = response.data;
 
     } else {
-      message.value = response.message || "Failed to fetch student work.";
+      message.value = response.data.message || "Failed to fetch student work.";
     }
   } catch (error) {
     message.value = "Failed to retrieve student work.";
@@ -33,6 +33,28 @@ const fetchStudentWork = async () => {
 };
 
 onMounted(fetchStudentWork);
+
+const revertVersion = async () =>{
+  const studentWorkId = route.query.id; 
+
+  if (!studentWorkId || !revert) {
+    message.value = "Revert version number is missing.";
+    return;
+  }
+
+  try {
+    const response = await submissionService.revertVersion(studentWorkId, revert.value);
+
+    if (response.status === 200) {
+      fetchStudentWork();
+
+    } else {
+      message.value = response.data.message || "Revert failed.";
+    }
+  } catch (error) {
+    message.value = "Revert failed.";
+  }
+}
 </script>
 
 <template>
@@ -44,6 +66,15 @@ onMounted(fetchStudentWork);
     </div>
     <div v-else>Loading...</div>
     <UpdateWork v-if="route.query && route.query.id" :studentWorkId="route.query.id"/>
+    <div class="input-group">
+    <label>Revert Version</label>
+    <input
+      type="number"
+      v-model="revert"
+      placeholder="version num"
+    />
+    <button @click="revertVersion">Revert</button>
+  </div>
   </div>
 </template>
 

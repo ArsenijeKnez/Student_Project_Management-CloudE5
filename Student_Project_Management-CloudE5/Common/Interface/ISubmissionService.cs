@@ -16,5 +16,6 @@ namespace Common.Interface
         Task<List<StudentWorkStatus>> GetWorkStatus(string studentId);
         Task<FeedbackDto> GetFeedback(string studentWorkId);
         Task<StudentWorkDto> GetStudentWork(string studentWorkId);
-    }
+        Task<ResultMessage> RevertVersion(string studentWorkId, int version);
+    } 
 }

@@ -33,7 +33,7 @@ namespace ApiGateway.Controllers
             return result.Success ? Ok(result) : BadRequest(result);
         }
 
-        [HttpPost("updateWork")]
+        [HttpPut("updateWork")]
         public async Task<IActionResult> UpdateWork([FromForm] IFormFile file, [FromQuery] string studentWorkId)
         {
             if (file == null || file.Length == 0)
@@ -43,6 +43,18 @@ namespace ApiGateway.Controllers
             var fileUrl = await _blobStorageService.UploadFileAsync(stream, file.FileName, file.ContentType);
 
             var result =  await _submissionService.UpdateWork(fileUrl, studentWorkId);
+
+            return result.Success ? Ok(result) : BadRequest(result);
+        }
+
+        [HttpPut("revertVersion")]
+        public async Task<IActionResult> RevertVersion([FromQuery] string? studentWorkId, [FromQuery] int? verison)
+        {
+            if (studentWorkId == null || verison == null)
+                return BadRequest("Invalid parameters.");
+
+
+            var result = await _submissionService.RevertVersion(studentWorkId, verison.Value);
 
             return result.Success ? Ok(result) : BadRequest(result);
         }

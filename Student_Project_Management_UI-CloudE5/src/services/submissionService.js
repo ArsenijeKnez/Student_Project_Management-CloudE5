@@ -25,7 +25,7 @@ export default {
       const formData = new FormData();
       formData.append("file", file);
 
-      const response = await axios.post(`${API_URL}/updateWork?studentWorkId=${studentWorkId}`, formData, {
+      const response = await axios.put(`${API_URL}/updateWork?studentWorkId=${studentWorkId}`, formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
 
@@ -59,6 +59,15 @@ export default {
       return response;
     } catch (error) {
       return error.response?.data || { success: false, message: "Failed to retrieve student work" };
+    }
+  },
+
+  async revertVersion(studentWorkId, version) {
+    try {
+      const response = await axios.put(`${API_URL}/revertVersion?studentWorkId=${studentWorkId}&verison=${version}`);
+      return response;
+    } catch (error) {
+      return error.response?.data || { success: false, message: "Failed to revert version" };
     }
   },
 };
