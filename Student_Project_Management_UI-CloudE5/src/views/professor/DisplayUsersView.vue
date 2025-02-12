@@ -1,8 +1,10 @@
 <script setup>
 import { ref, onMounted } from 'vue';
+import { useRouter } from "vue-router";
 import UserService from '@/services/userService.js';
 
 const users = ref([]);
+const router = useRouter();
 
 const getStudets = async () => {
   try {
@@ -16,6 +18,10 @@ const getStudets = async () => {
 onMounted(() => {
     getStudets();
 });
+
+const viewWork =  (id, username) =>{
+  router.push({ name: "work-review", query: { id: id, username: username }  });
+}
 
 </script>
 
@@ -38,7 +44,7 @@ onMounted(() => {
             <td>{{ user.lastName }}</td>
             <td>{{ user.email }}</td>
             <td>
-              <button @click="viewWork(user.id)">View Work</button>
+              <button @click="viewWork(user.id, user.username)">View Work</button>
               <button @click="generateReport(user.id)">Generate Report</button>
             </td>
           </tr>

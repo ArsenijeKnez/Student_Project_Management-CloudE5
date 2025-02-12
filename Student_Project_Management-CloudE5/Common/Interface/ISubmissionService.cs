@@ -14,6 +14,7 @@ namespace Common.Interface
         Task<ResultMessage> UploadWork(string studentId, string fileUrl, string title);
         Task<ResultMessage> UpdateWork(string fileUrl, string studentWorkId);
         Task<List<StudentWorkStatus>> GetWorkStatus(string studentId);
+        Task<List<StudentWorkDto>> GetWorksOfStudent(string studentId);
         Task<FeedbackDto> GetFeedback(string studentWorkId);
         Task<StudentWorkDto> GetStudentWork(string studentWorkId);
         Task<ResultMessage> RevertVersion(string studentWorkId, int version);

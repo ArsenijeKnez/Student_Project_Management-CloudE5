@@ -44,6 +44,15 @@ export default {
     }
   },
 
+  async getWorksForStudent(studentId) {
+    try {
+      const response = await axios.get(`${API_URL}/work/${studentId}/works`);
+      return response;
+    } catch (error) {
+      return error.response?.data || { success: false, message: "Failed to retrieve works" };
+    }
+  },
+
   async getFeedback(studentWorkId) {
     try {
       const response = await axios.get(`${API_URL}/work/${studentWorkId}/feedback`);

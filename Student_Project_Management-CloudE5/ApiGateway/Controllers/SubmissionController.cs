@@ -66,6 +66,13 @@ namespace ApiGateway.Controllers
             return statuses != null ? Ok(statuses) : NotFound("No works found for the given student.");
         }
 
+        [HttpGet("work/{studentId}/works")]
+        public async Task<ActionResult<IEnumerable<StudentWorkDto>>> GetWorksOfStudent(string studentId)
+        {
+            var statuses = await _submissionService.GetWorksOfStudent(studentId);
+            return statuses != null ? Ok(statuses) : NotFound("No works found for the given student.");
+        }
+
         [HttpGet("work/{studentWorkId}/feedback")]
         public async Task<ActionResult<FeedbackDto>> GetFeedback(string studentWorkId)
         {

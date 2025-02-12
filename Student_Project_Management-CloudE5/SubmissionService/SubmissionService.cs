@@ -138,6 +138,19 @@ namespace SubmissionService
             }).ToList();
         }
 
+        public async Task<List<StudentWorkDto>> GetWorksOfStudent(string studentId)
+        {
+            var works = await _submissionService.GetWorksByStudentIdAsync(studentId);
+            if (works == null || !works.Any())
+                return null;
+            List<StudentWorkDto> list = new List<StudentWorkDto>();
+            foreach(var work in works)
+            {
+                list.Add(StudentWorkMapper.ToDto(work));
+            }
+            return list;
+        }
+
         public async Task<ResultMessage> RevertVersion(string studentWorkId, int version)
         {
             var work = await _submissionService.GetWorkByIdAsync(studentWorkId);
@@ -241,7 +254,6 @@ namespace SubmissionService
 
 
         protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners() => this.CreateServiceRemotingReplicaListeners();
-
 
     }
 }

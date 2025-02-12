@@ -77,10 +77,3 @@ const revertVersion = async () =>{
   </div>
   </div>
 </template>
-
-<style scoped>
-.error {
-  color: red;
-}
-</style>
-
