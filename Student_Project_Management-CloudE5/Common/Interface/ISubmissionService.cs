@@ -17,5 +17,6 @@ namespace Common.Interface
         Task<FeedbackDto> GetFeedback(string studentWorkId);
         Task<StudentWorkDto> GetStudentWork(string studentWorkId);
         Task<ResultMessage> RevertVersion(string studentWorkId, int version);
+        Task<ResultMessage> SetDailySubmissionLimit(int limit);
     } 
 }
