@@ -13,6 +13,7 @@ using Common.Model;
 using Microsoft.ServiceFabric.Data;
 using Microsoft.ServiceFabric.Data.Collections;
 using Microsoft.ServiceFabric.Services.Communication.Runtime;
+using Microsoft.ServiceFabric.Services.Remoting.Client;
 using Microsoft.ServiceFabric.Services.Remoting.Runtime;
 using Microsoft.ServiceFabric.Services.Runtime;
 using MongoDB.Bson;
@@ -27,6 +28,7 @@ namespace SubmissionService
     {
         private readonly StudentWorksService _submissionService;
         private readonly IReliableStateManager _stateManager;
+        private readonly IAnalysisService _analysisService = ServiceProxy.Create<IAnalysisService>(new Uri("fabric:/Student_Project_Management-CloudE5/AnalysisService"));
         private const string SubmissionConfigKey = "DailySubmissionLimit";
         private const string DailySubmissionsKey = "DailySubmissions";
         public SubmissionService(StatefulServiceContext context)
@@ -35,6 +37,36 @@ namespace SubmissionService
             _submissionService = new StudentWorksService("mongodb://localhost:27017", "StudentWorkDatabase", "Works");
             _stateManager = this.StateManager;
         }
+        protected override async Task RunAsync(CancellationToken cancellationToken)
+        {
+            while (!cancellationToken.IsCancellationRequested)
+            {
+                await ProcessSubmittedWorks();
+                await Task.Delay(TimeSpan.FromMinutes(5), cancellationToken);
+            }
+        }
+        private async Task ProcessSubmittedWorks()
+        {
+            var submittedWorks = await _submissionService.GetWorksByStatusAsync(WorkStatus.Submitted);
+
+            foreach (var work in submittedWorks)
+            {
+                var feedbackDto = await _analysisService.AnalyzeWork(StudentWorkMapper.ToDto(work));
+                if (feedbackDto != null)
+                {
+                    work.Feedback = new Feedback
+                    {
+                        Score = feedbackDto.Score,
+                        Errors = feedbackDto.Errors,
+                        ImprovementSuggestions = feedbackDto.ImprovementSuggestions,
+                        Recommendations = feedbackDto.Recommendations
+                    };
+                    work.Status = WorkStatus.FeedbackReady;
+                    await _submissionService.UpdateWorkAsync(work.Id, work);
+                }
+            }
+        }
+
         public async Task<FeedbackDto> GetFeedback(string studentWorkId)
         {
             var work = await _submissionService.GetWorkByIdAsync(studentWorkId);

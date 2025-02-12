@@ -1,4 +1,5 @@
-﻿using Microsoft.ServiceFabric.Services.Remoting;
+﻿using Common.Dto;
+using Microsoft.ServiceFabric.Services.Remoting;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,5 +10,6 @@ namespace Common.Interface
 {
     public interface IAnalysisService : IService
     {
+        Task<FeedbackDto> AnalyzeWork(StudentWorkDto studentWorkDto);
     }
 }

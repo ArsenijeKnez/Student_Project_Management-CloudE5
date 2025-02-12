@@ -1,4 +1,5 @@
-﻿using Common.Model;
+﻿using Common.Enum;
+using Common.Model;
 using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
@@ -27,6 +28,11 @@ namespace SubmissionService.SubmissionDB
         public async Task<List<StudentWork>> GetWorksByStudentIdAsync(string studentId)
         {
             return await _submissions.Find(w => w.StudentId == studentId).ToListAsync();
+        }
+
+        public async Task<List<StudentWork>> GetWorksByStatusAsync(WorkStatus status)
+        {
+            return await _submissions.Find(u => u.Status == status).ToListAsync();
         }
 
 
