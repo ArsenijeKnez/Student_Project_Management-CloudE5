@@ -1,4 +1,5 @@
-﻿using Common.Interface;
+﻿using Common.Dto;
+using Common.Interface;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.ServiceFabric.Services.Client;
@@ -24,6 +25,13 @@ namespace ApiGateway.Controllers
             return result.Success ? Ok(result) : BadRequest(result);
         }
 
+        [HttpPut("setAnalysisInterval")]
+        public async Task<IActionResult> SetAnalysisInterval([FromQuery] TimeSpan interval)
+        {
+            var result = await _submissionService.SetProcessingInterval(interval);
+            return result != null? Ok(result) : BadRequest(result);
+
+        }
     }
 
 }

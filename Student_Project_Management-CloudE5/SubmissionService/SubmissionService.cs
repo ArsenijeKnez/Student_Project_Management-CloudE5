@@ -27,24 +27,47 @@ namespace SubmissionService
     internal sealed class SubmissionService : StatefulService, ISubmissionService
     {
         private readonly StudentWorksService _submissionService;
+        
         private readonly IReliableStateManager _stateManager;
         private readonly IAnalysisService _analysisService = ServiceProxy.Create<IAnalysisService>(new Uri("fabric:/Student_Project_Management-CloudE5/AnalysisService"));
+        
         private const string SubmissionConfigKey = "DailySubmissionLimit";
         private const string DailySubmissionsKey = "DailySubmissions";
+
+        private TimeSpan _processingInterval = TimeSpan.FromMinutes(5);
+
         public SubmissionService(StatefulServiceContext context)
             : base(context)
         {
             _submissionService = new StudentWorksService("mongodb://localhost:27017", "StudentWorkDatabase", "Works");
             _stateManager = this.StateManager;
+
         }
+
         protected override async Task RunAsync(CancellationToken cancellationToken)
         {
+            await LoadProcessingInterval();
             while (!cancellationToken.IsCancellationRequested)
             {
                 await ProcessSubmittedWorks();
-                await Task.Delay(TimeSpan.FromMinutes(5), cancellationToken);
+                await Task.Delay(_processingInterval, cancellationToken);
             }
         }
+
+        private async Task LoadProcessingInterval()
+        {
+            using (var tx = _stateManager.CreateTransaction())
+            {
+                var configDict = await _stateManager.GetOrAddAsync<IReliableDictionary<string, TimeSpan>>("ProcessingConfig");
+                var result = await configDict.TryGetValueAsync(tx, "ProcessingInterval");
+
+                if (result.HasValue)
+                {
+                    _processingInterval = result.Value;
+                }
+            }
+        }
+
         private async Task ProcessSubmittedWorks()
         {
             var submittedWorks = await _submissionService.GetWorksByStatusAsync(WorkStatus.Submitted);
@@ -66,6 +89,21 @@ namespace SubmissionService
                 }
             }
         }
+
+        public async Task<ResultMessage> SetProcessingInterval(TimeSpan interval)
+        {
+
+            using (var tx = _stateManager.CreateTransaction())
+            {
+                var configDict = await _stateManager.GetOrAddAsync<IReliableDictionary<string, TimeSpan>>("ProcessingConfig");
+                await configDict.SetAsync(tx, "ProcessingInterval", interval);
+                await tx.CommitAsync();
+            }
+
+            _processingInterval = interval;
+            return new ResultMessage(true, "Successfully set analysis interval");
+        }
+
 
         public async Task<FeedbackDto> GetFeedback(string studentWorkId)
         {

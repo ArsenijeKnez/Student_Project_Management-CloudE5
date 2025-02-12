@@ -10,4 +10,12 @@ export default {
         return error.response?.data || { success: false, message: "Failed to set daily submission limit" };
       }
     },
+    async SetAnalysisInterval(interval) {
+      try {
+        const response = await axios.put(`${API_URL}/setAnalysisInterval?interval=${interval}`);
+        return response.data;
+      } catch (error) {
+        return error.response?.data || { success: false, message: "Failed to set analysis interval" };
+      }
+    },
   };

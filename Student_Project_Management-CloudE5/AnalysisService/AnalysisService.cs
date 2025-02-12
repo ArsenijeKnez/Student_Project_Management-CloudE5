@@ -9,6 +9,7 @@ using Common.Dto;
 using Common.Interface;
 using Common.Model;
 using Microsoft.ServiceFabric.Services.Communication.Runtime;
+using Microsoft.ServiceFabric.Services.Remoting.Runtime;
 using Microsoft.ServiceFabric.Services.Runtime;
 
 
@@ -61,11 +62,16 @@ namespace AnalysisService
                 return null;
             }
         }
-        protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
-        {
-            return new ServiceInstanceListener[0];
-        }
+        protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners() => this.CreateServiceRemotingInstanceListeners();
 
+        protected override async Task RunAsync(CancellationToken cancellationToken)
+        {
+            while (true)
+            {
+                cancellationToken.ThrowIfCancellationRequested();
+                await Task.Delay(TimeSpan.FromSeconds(1), cancellationToken);
+            }
+        }
 
     }
 }
