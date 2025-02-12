@@ -29,7 +29,6 @@ namespace AnalysisService
             if (studentWorkDto == null || studentWorkDto.Versions.Count == 0)
                 return new FeedbackDto { Score = 0, Errors = new List<string> { "No versions available for grading" } };
 
-            // Determine which version to analyze
             WorkVersion versionToAnalyze = studentWorkDto.Reverted != null
                 ? studentWorkDto.Versions.FirstOrDefault(v => v.VersionNumber == studentWorkDto.Reverted)
                 : studentWorkDto.Versions.OrderByDescending(v => v.UploadedAt).FirstOrDefault();

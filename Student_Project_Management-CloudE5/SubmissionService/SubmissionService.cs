@@ -251,9 +251,26 @@ namespace SubmissionService
             }
         }
 
+        public async Task<ResultMessage> UpdateFeedback(FeedbackDto feedbackDto, string studentWorkId)
+        {
+            var work = await _submissionService.GetWorkByIdAsync(studentWorkId);
+            if (work == null) return new ResultMessage(false, "Work not found");
 
+
+            work.Feedback = new Feedback
+            {
+                Score = feedbackDto.Score,
+                Errors = feedbackDto.Errors,
+                ImprovementSuggestions = feedbackDto.ImprovementSuggestions,
+                Recommendations = feedbackDto.Recommendations
+            };
+
+            var success = await _submissionService.UpdateWorkAsync(work.Id, work);
+            return success ? new ResultMessage(true, "Feedback updated successfully") : new ResultMessage(false, "Failed to update feedback");
+        }
 
         protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners() => this.CreateServiceRemotingReplicaListeners();
 
+     
     }
 }

@@ -20,5 +20,6 @@ namespace Common.Interface
         Task<ResultMessage> RevertVersion(string studentWorkId, int version);
         Task<ResultMessage> SetDailySubmissionLimit(int limit);
         Task<ResultMessage> SetProcessingInterval(TimeSpan interval);
+        Task<ResultMessage> UpdateFeedback(FeedbackDto feedbackDto, string studentWorkId);
     } 
 }
