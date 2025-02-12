@@ -70,6 +70,11 @@ namespace UserManagementService
             var users = await _userService.GetAllUsersAsync();
             return users.Select(u => UserMapper.ToDto(u)).ToList();
         }
+        public async Task<List<UserDto>> GetAllStudentsAsync()
+        {
+            var users = await _userService.GetAllStudentsAsync();
+            return users.Select(u => UserMapper.ToDto(u)).ToList();
+        }
 
         public async Task<ResultMessage> ChangeUserRoleAsync(string id, string newRole)
         {
@@ -84,7 +89,6 @@ namespace UserManagementService
 
         protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners() => this.CreateServiceRemotingReplicaListeners();
 
-
-       
+  
     }
 }

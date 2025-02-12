@@ -134,9 +134,3 @@ const promptChangeRole = async (id) => {
   </div>
 </template>
 
-<style scoped>
-.error-message {
-  color: red;
-  font-size: 14px;
-}
-</style>

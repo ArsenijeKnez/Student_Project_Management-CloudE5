@@ -44,6 +44,12 @@ const router = createRouter({
       component: () => import('../views/student/WorkStatusView.vue'),
       meta: { requiresAuth: true, role: 'Student' },
     },
+    {
+      path: '/professor/students',
+      name: 'students-display',
+      component: () => import('../views/professor/DisplayUsersView.vue'),
+      meta: { requiresAuth: true, role: 'Professor' },
+    },
   ],
 });
 

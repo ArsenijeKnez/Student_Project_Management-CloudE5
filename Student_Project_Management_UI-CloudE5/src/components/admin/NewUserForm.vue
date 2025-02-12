@@ -60,9 +60,3 @@ const handleNewUser = () => {
   </form>
 </template>
 
-<style scoped>
-.error-message {
-  color: red;
-  font-size: 14px;
-}
-</style>

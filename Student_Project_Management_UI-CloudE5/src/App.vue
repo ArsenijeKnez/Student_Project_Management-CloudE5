@@ -7,6 +7,7 @@ const user = ref(JSON.parse(sessionStorage.getItem('user')) || null);
 
 const isAdmin = computed(() => user.value?.role === 'Admin');
 const isStudent = computed(() => user.value?.role === 'Student');
+const isProfessor = computed(() => user.value?.role === 'Professor');
 
 const logout = () => {
   sessionStorage.removeItem('user');
@@ -29,6 +30,9 @@ const logout = () => {
       <template v-if="isStudent">
         <RouterLink to="/student/upload">Upload Work</RouterLink>
         <RouterLink to="/student/status">Work Status</RouterLink>
+      </template>
+      <template v-if="isProfessor">
+        <RouterLink to="/professor/students">View Students</RouterLink>
       </template>
       <button @click="logout" v-if="user">Logout</button>
     </nav>

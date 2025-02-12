@@ -48,6 +48,11 @@ namespace UserManagementService.UserDB
             return await _users.Find(_ => true).ToListAsync();
         }
 
+        public async Task<List<User>> GetAllStudentsAsync()
+        {
+            return await _users.Find(u => u.Role == "Student").ToListAsync();
+        }
+
         public async Task<bool> ChangeUserRoleAsync(string id, string newRole)
         {
             var update = Builders<User>.Update.Set(u => u.Role, newRole);

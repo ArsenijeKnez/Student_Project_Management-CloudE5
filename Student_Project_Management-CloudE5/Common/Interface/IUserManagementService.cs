@@ -16,6 +16,7 @@ namespace Common.Interface
         Task<UserDto> GetUserByIdAsync(string id);
         Task<ResultMessage> UpdateUserAsync(string id, UserDto request);
         Task<List<UserDto>> GetAllUsersAsync();
+        Task<List<UserDto>> GetAllStudentsAsync();
         Task<ResultMessage> ChangeUserRoleAsync(string id, string newRole);
         Task<ResultMessage> DeleteUserAsync(string id);
 

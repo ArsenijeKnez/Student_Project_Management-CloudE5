@@ -30,6 +30,15 @@ export default {
         }
     },
 
+    async getAllStudents() {
+        try {
+            const response = await axios.get(`${API_URL}/professor`);
+            return response.data;
+        } catch (error) {
+            throw error.response ? error.response.data : error;
+        }
+    },
+
     async changeUserRole(id, newRole) {
         try {
             await axios.put(`${ADMIN_API_URL}/${id}/role`, newRole, {

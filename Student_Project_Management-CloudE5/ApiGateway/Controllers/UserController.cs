@@ -37,6 +37,13 @@ namespace ApiGateway.Controllers
             return Ok(users);
         }
 
+        [HttpGet("professor")]
+        public async Task<ActionResult<IEnumerable<UserDto>>> GetAllStudents()
+        {
+            var students = await _userManagementService.GetAllStudentsAsync();
+            return Ok(students);
+        }
+
         [HttpPut("admin/{id}/role")]
         public async Task<IActionResult> ChangeUserRole(string id, [FromBody] string newRole)
         {
