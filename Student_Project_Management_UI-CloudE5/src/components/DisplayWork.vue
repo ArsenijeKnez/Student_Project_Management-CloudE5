@@ -32,8 +32,8 @@ const downloadFile = (fileUrl) => {
     </p>
 
     <div v-if="studentWork.feedback">
-      <h3>Feedback</h3>
-      <p>{{ studentWork.feedback.comment || "No feedback available" }}</p>
+      <h3>Feedback Ready</h3>
+      <p>Score: {{ studentWork.feedback.score }}</p>
     </div>
 
     <div v-if="studentWork.versions && studentWork.versions.length">

@@ -44,7 +44,8 @@ namespace AnalysisService
             {
                 Score = new Random().NextDouble() * 100, 
                 Errors = new List<string>(),
-                ImprovementSuggestions = new List<string> { "Improve structure", "Clarify main points" }
+                ImprovementSuggestions = new List<string> { "Improve structure", "Clarify main points" },
+                Recommendations = new List<string>()
             };
             return feedback ?? new FeedbackDto { Score = 0, Errors = new List<string> { "AI grading failed" } };
         }

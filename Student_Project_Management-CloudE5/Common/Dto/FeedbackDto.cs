@@ -10,8 +10,8 @@ namespace Common.Dto
     public class FeedbackDto
     {
         public double Score { get; set; }
-        public List<string> Errors { get; set; }
-        public List<string> ImprovementSuggestions { get; set; } 
-        public List<string> Recommendations { get; set; }
+        public List<string>? Errors { get; set; }
+        public List<string>? ImprovementSuggestions { get; set; } 
+        public List<string>? Recommendations { get; set; }
     }
 }

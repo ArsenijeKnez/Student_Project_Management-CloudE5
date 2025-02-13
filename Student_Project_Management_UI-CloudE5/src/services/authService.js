@@ -15,7 +15,7 @@ export default {
       const response = await axios.post(`${API_URL}/register`, formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
-      console.log(response);
+
       return response;
     } catch (error) {
       return error.response?.data || { success: false, message: "Registration failed" };

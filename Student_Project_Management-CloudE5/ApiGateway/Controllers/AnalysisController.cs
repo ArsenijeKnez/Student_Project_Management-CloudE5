@@ -28,15 +28,21 @@ namespace ApiGateway.Controllers
             else return Ok(feedback);
         }
 
-        [HttpPut("/append")]
-        public async Task<IActionResult> ProfessorsWorkAnalysis([FromForm] FeedbackDto feedback, [FromQuery] string studentWorkId)
+        [HttpPut("append")] 
+        public async Task<IActionResult> ProfessorsWorkAnalysis([FromBody] FeedbackDto feedback, [FromQuery] string studentWorkId)
         {
-
+            if (feedback == null || string.IsNullOrEmpty(studentWorkId))
+            {
+                return BadRequest("Invalid request data.");
+            }
             var result = await _submissionService.UpdateFeedback(feedback, studentWorkId);
+
             if (result == null)
                 return BadRequest("Error updating analysis.");
-            else return Ok();
+
+            return Ok();
         }
+
 
     }
 }
