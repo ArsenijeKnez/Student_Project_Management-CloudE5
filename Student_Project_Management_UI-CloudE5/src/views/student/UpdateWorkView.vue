@@ -4,11 +4,13 @@ import { useRoute } from "vue-router";
 import submissionService from "@/services/submissionService";
 import DisplayWork from "@/components/DisplayWork.vue";
 import UpdateWork from "@/components/student/UpdateWork.vue";
+import ShowFeedback from "@/components/student/ShowFeedback.vue";
 
 const route = useRoute();
 const message = ref("");
 const studentWork = ref(null);
 const revert = ref(null);
+const modal = ref(false);
 
 const fetchStudentWork = async () => {
   const studentWorkId = route.query.id; 
@@ -55,16 +57,19 @@ const revertVersion = async () =>{
     message.value = "Revert failed.";
   }
 }
+
 </script>
 
 <template>
   <div>
-    <h2>Student Work Details</h2> 
+    <h1>Student Work Details</h1> 
     <p v-if="message" class="error">{{ message }}</p>
     <div v-if="studentWork && !message">
       <DisplayWork :studentWork="studentWork" /> 
     </div>
     <div v-else>Loading...</div>
+    <button @click="() => { modal = !modal}">Feedback</button>
+    <div v-if="modal"><ShowFeedback v-if="studentWork && studentWork.feedback" :feedback="studentWork.feedback"/></div>
     <UpdateWork v-if="route.query && route.query.id" :studentWorkId="route.query.id"/>
     <div class="input-group">
     <label>Revert Version</label>
