@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using Common.Dto;
 using Common.Interface;
 using Common.Model;
+using Microsoft.ServiceFabric.Data.Collections;
 using Microsoft.ServiceFabric.Services.Communication.Runtime;
 using Microsoft.ServiceFabric.Services.Remoting.Runtime;
 using Microsoft.ServiceFabric.Services.Runtime;
@@ -18,10 +19,10 @@ namespace AnalysisService
     /// <summary>
     /// An instance of this class is created for each service instance by the Service Fabric runtime.
     /// </summary>
-    internal sealed class AnalysisService : StatelessService, IAnalysisService
+    internal sealed class AnalysisService : StatefulService, IAnalysisService
     {
         private readonly HttpClient _httpClient = new HttpClient();
-        public AnalysisService(StatelessServiceContext context)
+        public AnalysisService(StatefulServiceContext context)
             : base(context)
         { }
         public async Task<FeedbackDto> AnalyzeWork(StudentWorkDto studentWorkDto)
@@ -58,20 +59,11 @@ namespace AnalysisService
             }
             catch (Exception ex)
             {
-                ServiceEventSource.Current.ServiceMessage(this.Context, "File download failed: {0}", ex.Message);
                 return null;
             }
         }
-        protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners() => this.CreateServiceRemotingInstanceListeners();
 
-        protected override async Task RunAsync(CancellationToken cancellationToken)
-        {
-            while (true)
-            {
-                cancellationToken.ThrowIfCancellationRequested();
-                await Task.Delay(TimeSpan.FromSeconds(1), cancellationToken);
-            }
-        }
+        protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners() => this.CreateServiceRemotingReplicaListeners();
 
     }
 }
