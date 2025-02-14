@@ -20,13 +20,6 @@ const router = createRouter({
       meta: { requiresAuth: true, role: 'Admin' },
     },
     {
-      path: '/admin/reports',
-      name: 'reports',
-      component: () => import('../views/admin/ReportsView.vue'),
-      meta: { requiresAuth: true, role: 'Admin' },
-    },
-
-    {
       path: '/student/upload',
       name: 'upload-work',
       component: () => import('../views/student/UploadWorkView.vue'),
@@ -42,6 +35,12 @@ const router = createRouter({
       path: '/student/status',
       name: 'status-reports',
       component: () => import('../views/student/WorkStatusView.vue'),
+      meta: { requiresAuth: true, role: 'Student' },
+    },
+    {
+      path: '/student/progress',
+      name: 'progress-report',
+      component: () => import('../views/student/ProgressView.vue'),
       meta: { requiresAuth: true, role: 'Student' },
     },
     {
