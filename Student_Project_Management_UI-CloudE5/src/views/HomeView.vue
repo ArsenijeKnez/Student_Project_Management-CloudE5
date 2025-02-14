@@ -13,7 +13,7 @@ onMounted(() => {
 
 <template>
   <div class="home">
-    <h1>Welcome to Student_Project_Management!</h1>
+    <h1>Welcome to Student Project Management</h1>
     
     <div v-if="user">
       <p><strong>Username:</strong> {{ user.username }}</p>
