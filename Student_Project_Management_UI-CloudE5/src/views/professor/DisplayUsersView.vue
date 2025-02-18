@@ -23,6 +23,10 @@ const viewWork =  (id, username) =>{
   router.push({ name: "work-review", query: { id: id, username: username }  });
 }
 
+const generateReport = (id, username) =>{
+  router.push({ name: "individual-reports", query: { id: id, username: username }  });
+}
+
 </script>
 
 
@@ -45,7 +49,7 @@ const viewWork =  (id, username) =>{
             <td>{{ user.email }}</td>
             <td>
               <button @click="viewWork(user.id, user.username)">View Work</button>
-              <button @click="generateReport(user.id)">Generate Report</button>
+              <button @click="generateReport(user.id, user.username)">Generate Report</button>
             </td>
           </tr>
         </tbody>
