@@ -1,96 +1,95 @@
 <script setup>
-import { ref, onMounted } from 'vue';
-import NewUserForm from '@/components/admin/NewUserForm.vue';
-import EditUserForm from '@/components/admin/EditUserForm.vue';
-import UserService from '@/services/userService.js';
-import AuthService from '@/services/authService.js';
+import { ref, onMounted } from 'vue'
+import NewUserForm from '@/components/admin/NewUserForm.vue'
+import EditUserForm from '@/components/admin/EditUserForm.vue'
+import UserService from '@/services/userService.js'
+import AuthService from '@/services/authService.js'
 
-const users = ref([]);
-const showNewUserForm = ref(false);
-const editingUser = ref(null);
+const users = ref([])
+const showNewUserForm = ref(false)
+const editingUser = ref(null)
 
 const getUsers = async () => {
   try {
-    const data = await UserService.getAllUsers();
-    users.value = data;
+    const data = await UserService.getAllUsers()
+    users.value = data
   } catch (error) {
-    console.error('Failed to load users:', error);
+    console.error('Failed to load users:', error)
   }
-};
+}
 
 onMounted(() => {
-  getUsers();
-});
+  getUsers()
+})
 
 const toggleNewUserForm = () => {
   if (editingUser.value) {
-    editingUser.value = null;
+    editingUser.value = null
   }
-  showNewUserForm.value = !showNewUserForm.value;
-};
+  showNewUserForm.value = !showNewUserForm.value
+}
 
 const handleUserCreated = async (newUser) => {
   try {
-    const response = await AuthService.register(newUser);
-    if (response.success) {
-      alert('User created successfully!');
-      showNewUserForm.value = false;
-      await getUsers();
+    const response = await AuthService.register(newUser)
+    if (response.data.success) {
+      alert('User created successfully!')
+      showNewUserForm.value = false
+      await getUsers()
     } else {
-      alert('Error: ' + response.message);
+      alert('Error: ' + response.data.message)
     }
   } catch (error) {
-    console.error('Error creating user:', error);
+    console.error('Error creating user:', error)
   }
-};
+}
 
 const startEditUser = (user) => {
-  editingUser.value = { ...user };
-  showNewUserForm.value = false;
-};
+  editingUser.value = { ...user }
+  showNewUserForm.value = false
+}
 
 const handleUserUpdated = async (updatedData) => {
-  console.log(editingUser.value.id);
+  console.log(editingUser.value.id)
   try {
-    await UserService.updateUser(editingUser.value.id, updatedData);
-    alert('User updated successfully!');
-    editingUser.value = null;
-    await getUsers();
+    await UserService.updateUser(editingUser.value.id, updatedData)
+    alert('User updated successfully!')
+    editingUser.value = null
+    await getUsers()
   } catch (error) {
-    console.error('Error updating user:', error);
+    console.error('Error updating user:', error)
   }
-};
+}
 
 const cancelEdit = () => {
-  editingUser.value = null;
-};
+  editingUser.value = null
+}
 
 const deleteUser = async (id) => {
   try {
-    await UserService.deleteUser(id);
-    alert('User deleted successfully!');
-    await getUsers();
+    await UserService.deleteUser(id)
+    alert('User deleted successfully!')
+    await getUsers()
   } catch (error) {
-    console.error('Error deleting user:', error);
+    console.error('Error deleting user:', error)
   }
-};
+}
 
 const promptChangeRole = async (id) => {
-  const newRole = prompt('Enter new role (Admin, Student, Professor):');
+  const newRole = prompt('Enter new role (Admin, Student, Professor):')
   if (newRole && ['Admin', 'Student', 'Professor'].includes(newRole)) {
     try {
-      await UserService.changeUserRole(id, newRole);
-      alert('User role updated successfully!');
-      await getUsers();
+      await UserService.changeUserRole(id, newRole)
+      alert('User role updated successfully!')
+      await getUsers()
     } catch (error) {
-      console.error('Error updating role:', error);
+      console.error('Error updating role:', error)
     }
   } else {
-    alert('Invalid role.');
+    alert('Invalid role.')
   }
-};
+}
 </script>
-
 
 <template>
   <div>
@@ -101,11 +100,11 @@ const promptChangeRole = async (id) => {
 
     <NewUserForm v-if="showNewUserForm && !editingUser" @userCreated="handleUserCreated" />
 
-    <EditUserForm 
-      v-if="editingUser" 
-      :user="editingUser" 
-      @userUpdated="handleUserUpdated" 
-      @cancel="cancelEdit" 
+    <EditUserForm
+      v-if="editingUser"
+      :user="editingUser"
+      @userUpdated="handleUserUpdated"
+      @cancel="cancelEdit"
     />
 
     <table v-if="users.length">
@@ -133,4 +132,3 @@ const promptChangeRole = async (id) => {
     <p v-else>No users found.</p>
   </div>
 </template>
-

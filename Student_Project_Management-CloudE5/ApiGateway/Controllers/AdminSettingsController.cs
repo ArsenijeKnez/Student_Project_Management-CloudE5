@@ -13,7 +13,7 @@ namespace ApiGateway.Controllers
     public class AdminSettingsController : ControllerBase
     {
         private readonly ISubmissionService _submissionService = ServiceProxy.Create<ISubmissionService>(new Uri("fabric:/Student_Project_Management-CloudE5/SubmissionService"), new ServicePartitionKey(0), TargetReplicaSelector.PrimaryReplica);
-
+        private readonly IAnalysisService _analysisService = ServiceProxy.Create<IAnalysisService>(new Uri("fabric:/Student_Project_Management-CloudE5/AnalysisService"));
 
         [HttpPost("setDailySubmissionLimit")]
         public async Task<IActionResult> SetDailySubmissionLimit([FromQuery] int limit)
@@ -32,6 +32,25 @@ namespace ApiGateway.Controllers
             return result != null? Ok(result) : BadRequest(result);
 
         }
+
+        [HttpPut("setAnalysisMethods")]
+        public async Task<IActionResult> SetAnalysisMethods([FromBody] SetPromptsDto promptsDto)
+        {
+            if (promptsDto == null)
+                return BadRequest(new ResultMessage(false, "No prompts given"));
+
+            var result = await _analysisService.SetPrompts(promptsDto.ErrorPrompt, promptsDto.ImprovementPrompt, promptsDto.ScorePrompt);
+            return result != null ? Ok(result) : BadRequest(result);
+        }
+
+        [HttpGet("getAnalysisMethods")]
+        public async Task<IActionResult> GetAnalysisMethods()
+        {
+            var prompts = await _analysisService.GetPrompts();
+            return prompts != null ? Ok(prompts) : NotFound("No prompts found.");
+        }
+
+
     }
 
 }

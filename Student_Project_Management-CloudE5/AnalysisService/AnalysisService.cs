@@ -23,7 +23,55 @@ namespace AnalysisService
         private const string GEMINI_API_KEY = "AIzaSyBPBbg4TNRyJdcEehNJdF447G2WpsyiBlI";
         private const string GEMINI_API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent";
 
+        private IReliableDictionary<string, string> _promptTemplates;
+
         public AnalysisService(StatefulServiceContext context) : base(context) { }
+
+        protected override async Task RunAsync(CancellationToken cancellationToken)
+        {
+            _promptTemplates = await this.StateManager.GetOrAddAsync<IReliableDictionary<string, string>>("PromptTemplates");
+            using (var tx = this.StateManager.CreateTransaction())
+            {
+                await _promptTemplates.AddOrUpdateAsync(tx, "error", "Identify any errors in the following student work(file of any type). List as few errors as possible with a very brief explanation, and return no empty lines:\n{0}", (key, value) => value);
+                await _promptTemplates.AddOrUpdateAsync(tx, "improvement", "Suggest improvements for the following work(file of any type). Provide brief actionable feedback, and return no empty lines:\n{0}", (key, value) => value);
+                await _promptTemplates.AddOrUpdateAsync(tx, "score", "Evaluate the following work(file of any type). Provide a score between 0 and 100:\n{0}", (key, value) => value);
+                await tx.CommitAsync();
+            }
+        }
+
+        public async Task<ResultMessage> SetPrompts(string errorPrompt, string improvementPrompt, string scorePrompt)
+        {
+            using (var tx = this.StateManager.CreateTransaction())
+            {
+                if (!string.IsNullOrWhiteSpace(errorPrompt))
+                    await _promptTemplates.SetAsync(tx, "error", errorPrompt);
+                if (!string.IsNullOrWhiteSpace(improvementPrompt))
+                    await _promptTemplates.SetAsync(tx, "improvement", improvementPrompt);
+                if (!string.IsNullOrWhiteSpace(scorePrompt))
+                    await _promptTemplates.SetAsync(tx, "score", scorePrompt);
+                await tx.CommitAsync();
+                return new ResultMessage(true, "Prompt methods updated");
+            }
+        }
+
+        public async Task<Dictionary<string, string>> GetPrompts()
+        {
+            var prompts = new Dictionary<string, string>();
+
+            using (var tx = this.StateManager.CreateTransaction())
+            {
+                var errorPrompt = await _promptTemplates.TryGetValueAsync(tx, "error");
+                var improvementPrompt = await _promptTemplates.TryGetValueAsync(tx, "improvement");
+                var scorePrompt = await _promptTemplates.TryGetValueAsync(tx, "score");
+
+                if (errorPrompt.HasValue) prompts["error"] = errorPrompt.Value;
+                if (improvementPrompt.HasValue) prompts["improvement"] = improvementPrompt.Value;
+                if (scorePrompt.HasValue) prompts["score"] = scorePrompt.Value;
+            }
+
+            return prompts;
+        }
+
 
         public async Task<FeedbackDto> AnalyzeWork(StudentWorkDto studentWorkDto)
         {
@@ -49,9 +97,17 @@ namespace AnalysisService
         {
             try
             {
-                string errorPrompt = $"Identify any errors in the following work. List the errors with a brief explanation:\n{textContent}";
-                string improvementPrompt = $"Suggest improvements for the following work. Provide actionable feedback:\n{textContent}";
-                string scorePrompt = $"Evaluate the following work based on clarity, correctness, and structure. Provide a score between 0 and 100:\n{textContent}";
+                string errorPrompt, improvementPrompt, scorePrompt;
+                using (var tx = this.StateManager.CreateTransaction())
+                {
+                    var errorResult = await _promptTemplates.TryGetValueAsync(tx, "error").ConfigureAwait(false);
+                    var improvementResult = await _promptTemplates.TryGetValueAsync(tx, "improvement").ConfigureAwait(false);
+                    var scoreResult = await _promptTemplates.TryGetValueAsync(tx, "score").ConfigureAwait(false);
+
+                    errorPrompt = string.Format(errorResult.HasValue ? errorResult.Value : "", textContent);
+                    improvementPrompt = string.Format(improvementResult.HasValue ? improvementResult.Value : "", textContent);
+                    scorePrompt = string.Format(scoreResult.HasValue ? scoreResult.Value : "", textContent);
+                }
 
 
                 string errors = await GetAIResponse(errorPrompt);
