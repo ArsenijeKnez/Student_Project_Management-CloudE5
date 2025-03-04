@@ -19,6 +19,10 @@ namespace Common.Interface
         Task<List<UserDto>> GetAllStudentsAsync();
         Task<ResultMessage> ChangeUserRoleAsync(string id, string newRole);
         Task<ResultMessage> DeleteUserAsync(string id);
+        Task<ResultMessage> AddUserRestrictionAsync(string restrictionKey, string userId);
+        Task<ResultMessage> RemoveUserRestrictionAsync(string restrictionKey, string userId);
+        Task<bool> IsUserRestrictedAsync(string restrictionKey, string userId);
+        Task<List<string>> GetUserRestrictions(string userId); 
 
     }
 }

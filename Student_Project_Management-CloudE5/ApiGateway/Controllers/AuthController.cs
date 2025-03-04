@@ -29,8 +29,11 @@ namespace ApiGateway.Controllers
         [HttpPost("login")]
         public async Task<IActionResult> Login([FromForm] LoginUser request)
         {
-            var result = await _userService.LoginAsync(request);
-            return result != null ? Ok(result) : Unauthorized(new ResultMessage(false, "Invalid credentials"));
+            var user = await _userService.LoginAsync(request);
+            if(user == null)return  Unauthorized(new ResultMessage(false, "Invalid credentials"));
+
+            var isRestricted = await _userService.IsUserRestrictedAsync("login", user.Id);
+            return isRestricted ? Unauthorized(new ResultMessage(false, "User login is restricted")) : Ok(user);
         }
 
     }
