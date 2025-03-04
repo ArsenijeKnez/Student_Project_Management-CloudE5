@@ -27,10 +27,12 @@ const logout = () => {
         <RouterLink to="/admin/settings">System Settings</RouterLink>
         <RouterLink to="/admin/reports">View Reports</RouterLink>
         <RouterLink to="/admin/restrictions">User Restrictions</RouterLink>
+
       </template>
       <template v-if="isStudent">
         <RouterLink to="/student/upload">Upload Work</RouterLink>
         <RouterLink to="/student/status">Work Status</RouterLink>
+        <RouterLink to="/student/progress">Progress</RouterLink>
       </template>
       <template v-if="isProfessor">
         <RouterLink to="/professor/students">View Students</RouterLink>
@@ -51,7 +53,8 @@ header {
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1); */
+  position:absolute;
+  width: 180px;
   z-index: 1000;
 }
 
@@ -87,7 +90,8 @@ main {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  margin-left: 150px;
+  margin-left: 180px;
+  width: 100%;
   text-align: center;
 }
 </style>

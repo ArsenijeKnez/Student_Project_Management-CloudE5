@@ -14,6 +14,7 @@ using Common.Model;
 using Microsoft.ServiceFabric.Services.Remoting.Runtime;
 using Common.Mapper;
 using Common.RequestForm;
+using MongoDB.Bson;
 
 namespace UserManagementService
 {
@@ -122,7 +123,7 @@ namespace UserManagementService
             {
                 return new ResultMessage(false,"User already exists.");
             }
-
+            request.Id = ObjectId.GenerateNewId().ToString();
             await _userService.AddUserAsync(UserMapper.ToEntity(request));
 
             return new ResultMessage(true, "User registered successfully." );

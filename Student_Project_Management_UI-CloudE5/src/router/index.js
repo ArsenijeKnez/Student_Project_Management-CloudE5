@@ -20,6 +20,7 @@ const router = createRouter({
       meta: { requiresAuth: true, role: 'Admin' },
     },
     {
+
       path: '/admin/reports',
       name: 'reports',
       component: () => import('../views/admin/ReportsView.vue'),
@@ -51,6 +52,12 @@ const router = createRouter({
       meta: { requiresAuth: true, role: 'Student' },
     },
     {
+      path: '/student/progress',
+      name: 'progress-report',
+      component: () => import('../views/student/ProgressView.vue'),
+      meta: { requiresAuth: true, role: 'Student' },
+    },
+    {
       path: '/professor/students',
       name: 'students-display',
       component: () => import('../views/professor/DisplayUsersView.vue'),
@@ -60,6 +67,12 @@ const router = createRouter({
       path: '/professor/workReview',
       name: 'work-review',
       component: () => import('../views/professor/WorkReviewView.vue'),
+      meta: { requiresAuth: true, role: 'Professor' },
+    },
+    {
+      path: '/professor/studentReports',
+      name: 'individual-reports',
+      component: () => import('../views/professor/IndividualStudentReportsView.vue'),
       meta: { requiresAuth: true, role: 'Professor' },
     },
   ],

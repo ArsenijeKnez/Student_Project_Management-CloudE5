@@ -12,6 +12,8 @@ using Common.Mapper;
 using Common.Model;
 using Microsoft.ServiceFabric.Data;
 using Microsoft.ServiceFabric.Data.Collections;
+using Microsoft.ServiceFabric.Services.Client;
+using Microsoft.ServiceFabric.Services.Communication.Client;
 using Microsoft.ServiceFabric.Services.Communication.Runtime;
 using Microsoft.ServiceFabric.Services.Remoting.Client;
 using Microsoft.ServiceFabric.Services.Remoting.Runtime;
@@ -29,7 +31,7 @@ namespace SubmissionService
         private readonly StudentWorksService _submissionService;
         
         private readonly IReliableStateManager _stateManager;
-        private readonly IAnalysisService _analysisService = ServiceProxy.Create<IAnalysisService>(new Uri("fabric:/Student_Project_Management-CloudE5/AnalysisService"));
+        private readonly IAnalysisService _analysisService = ServiceProxy.Create<IAnalysisService>(new Uri("fabric:/Student_Project_Management-CloudE5/AnalysisService"), new ServicePartitionKey(0), TargetReplicaSelector.PrimaryReplica);
         
         private const string SubmissionConfigKey = "DailySubmissionLimit";
         private const string DailySubmissionsKey = "DailySubmissions";
