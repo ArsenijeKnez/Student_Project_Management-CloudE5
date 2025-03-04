@@ -1,5 +1,5 @@
-import { createRouter, createWebHistory } from 'vue-router';
-import HomeView from '../views/HomeView.vue';
+import { createRouter, createWebHistory } from 'vue-router'
+import HomeView from '../views/HomeView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -11,7 +11,7 @@ const router = createRouter({
       path: '/admin/users',
       name: 'user-management',
       component: () => import('../views/admin/UserManagementView.vue'),
-      meta: { requiresAuth: true, role: 'Admin' }, 
+      meta: { requiresAuth: true, role: 'Admin' },
     },
     {
       path: '/admin/settings',
@@ -20,10 +20,24 @@ const router = createRouter({
       meta: { requiresAuth: true, role: 'Admin' },
     },
     {
+
+      path: '/admin/reports',
+      name: 'reports',
+      component: () => import('../views/admin/ReportsView.vue'),
+      meta: { requiresAuth: true, role: 'Admin' },
+    },
+    {
+      path: '/admin/restrictions',
+      name: 'restrictions',
+      component: () => import('../views/admin/UserRestrictionsView.vue'),
+      meta: { requiresAuth: true, role: 'Admin' },
+    },
+
+    {
       path: '/student/upload',
       name: 'upload-work',
       component: () => import('../views/student/UploadWorkView.vue'),
-      meta: { requiresAuth: true, role: 'Student' }, 
+      meta: { requiresAuth: true, role: 'Student' },
     },
     {
       path: '/student/update',
@@ -62,14 +76,14 @@ const router = createRouter({
       meta: { requiresAuth: true, role: 'Professor' },
     },
   ],
-});
+})
 
 router.beforeEach((to) => {
-  const user = JSON.parse(sessionStorage.getItem('user'));
+  const user = JSON.parse(sessionStorage.getItem('user'))
 
   if (to.meta.requiresAuth && (!user || user.role !== to.meta.role)) {
-    return '/login'; 
+    return '/login'
   }
-});
+})
 
-export default router;
+export default router

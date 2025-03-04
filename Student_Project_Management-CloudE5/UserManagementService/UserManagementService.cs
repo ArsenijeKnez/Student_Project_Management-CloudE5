@@ -30,6 +30,91 @@ namespace UserManagementService
             _userService = new UserService("mongodb://localhost:27017", "UserDatabase", "Users");
         }
 
+        private async Task<IReliableDictionary<string, List<string>>> GetRestrictionsDictionary()
+        {
+            return await this.StateManager.GetOrAddAsync<IReliableDictionary<string, List<string>>>("UserRestrictions");
+        }
+
+        public async Task<ResultMessage> AddUserRestrictionAsync(string restrictionKey, string userId)
+        {
+            var restrictions = await GetRestrictionsDictionary();
+
+            using (var tx = this.StateManager.CreateTransaction())
+            {
+                var existingEntry = await restrictions.TryGetValueAsync(tx, restrictionKey);
+                List<string> userIds = existingEntry.HasValue ? existingEntry.Value : new List<string>();
+
+                if (!userIds.Contains(userId))
+                {
+                    userIds.Add(userId);
+                    await restrictions.SetAsync(tx, restrictionKey, userIds);
+                    await tx.CommitAsync();
+                    return new ResultMessage(true, $"User {userId} added to restriction {restrictionKey}.");
+                }
+
+                return new ResultMessage(false, "User is already restricted.");
+            }
+        }
+
+
+        public async Task<ResultMessage> RemoveUserRestrictionAsync(string restrictionKey, string userId)
+        {
+            var restrictions = await GetRestrictionsDictionary();
+
+            using (var tx = this.StateManager.CreateTransaction())
+            {
+                var existingEntry = await restrictions.TryGetValueAsync(tx, restrictionKey);
+                if (!existingEntry.HasValue) return new ResultMessage(false, "Restriction does not exist.");
+
+                List<string> userIds = existingEntry.Value;
+                if (userIds.Remove(userId))
+                {
+                    await restrictions.SetAsync(tx, restrictionKey, userIds);
+                    await tx.CommitAsync();
+                    return new ResultMessage(true, $"User {userId} removed from restriction {restrictionKey}.");
+                }
+
+                return new ResultMessage(false, "User is not in the restriction list.");
+            }
+        }
+
+        public async Task<bool> IsUserRestrictedAsync(string restrictionKey, string userId)
+        {
+            var restrictions = await GetRestrictionsDictionary();
+
+            using (var tx = this.StateManager.CreateTransaction())
+            {
+                var existingEntry = await restrictions.TryGetValueAsync(tx, restrictionKey);
+                return existingEntry.HasValue && existingEntry.Value.Contains(userId);
+            }
+        }
+
+        public async Task<List<string>> GetUserRestrictions(string userId)
+        {
+            var restrictions = await GetRestrictionsDictionary();
+            List<string> userRestrictions = new List<string>();
+
+            using (var tx = this.StateManager.CreateTransaction())
+            {
+                var enumerator = (await restrictions.CreateEnumerableAsync(tx)).GetAsyncEnumerator();
+
+                while (await enumerator.MoveNextAsync(CancellationToken.None))
+                {
+                    var restrictionKey = enumerator.Current.Key;
+                    var userIds = enumerator.Current.Value;
+
+                    if (userIds.Contains(userId))
+                    {
+                        userRestrictions.Add(restrictionKey);
+                    }
+                }
+            }
+
+            return userRestrictions;
+        }
+
+
+
         public async Task<ResultMessage> RegisterAsync(UserDto request)
         {
             var existingUsername = await _userService.GetUserByUsernameOrEmailAsync(request.Username);

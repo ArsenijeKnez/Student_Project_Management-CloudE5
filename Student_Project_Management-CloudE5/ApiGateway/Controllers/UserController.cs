@@ -1,5 +1,6 @@
 ﻿using Common.Dto;
 using Common.Interface;
+using Common.RequestForm;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.ServiceFabric.Services.Client;
@@ -20,6 +21,27 @@ namespace ApiGateway.Controllers
             var user = await _userManagementService.GetUserByIdAsync(id);
             if (user == null) return NotFound();
             return Ok(user);
+        }
+
+        [HttpPost("admin/restrict")]
+        public async Task<IActionResult> AddUserRestriction([FromBody] RestrictionRequest request)
+        {
+            var result = await _userManagementService.AddUserRestrictionAsync(request.RestrictionKey, request.UserId);
+            return result.Success ? Ok(result) : BadRequest(result);
+        }
+
+        [HttpPost("admin/unrestrict")]
+        public async Task<IActionResult> RemoveUserRestriction([FromBody] RestrictionRequest request)
+        {
+            var result = await _userManagementService.RemoveUserRestrictionAsync(request.RestrictionKey, request.UserId);
+            return result.Success ? Ok(result) : BadRequest(result);
+        }
+
+        [HttpGet("admin/restrictions/{userId}")]
+        public async Task<IActionResult> GetUserRestrictions(string userId)
+        {
+            var restrictions = await _userManagementService.GetUserRestrictions(userId);
+            return Ok(restrictions);
         }
 
         [HttpPut("{id}")]

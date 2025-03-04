@@ -1,19 +1,19 @@
 <script setup>
-import { ref, computed } from 'vue';
-import { useRouter } from 'vue-router';
+import { ref, computed } from 'vue'
+import { useRouter } from 'vue-router'
 
-const router = useRouter();
-const user = ref(JSON.parse(sessionStorage.getItem('user')) || null);
+const router = useRouter()
+const user = ref(JSON.parse(sessionStorage.getItem('user')) || null)
 
-const isAdmin = computed(() => user.value?.role === 'Admin');
-const isStudent = computed(() => user.value?.role === 'Student');
-const isProfessor = computed(() => user.value?.role === 'Professor');
+const isAdmin = computed(() => user.value?.role === 'Admin')
+const isStudent = computed(() => user.value?.role === 'Student')
+const isProfessor = computed(() => user.value?.role === 'Professor')
 
 const logout = () => {
-  sessionStorage.removeItem('user');
-  user.value = null;
-  router.push('/login');
-};
+  sessionStorage.removeItem('user')
+  user.value = null
+  router.push('/login')
+}
 </script>
 
 <template>
@@ -25,6 +25,9 @@ const logout = () => {
       <template v-if="isAdmin">
         <RouterLink to="/admin/users">Manage Users</RouterLink>
         <RouterLink to="/admin/settings">System Settings</RouterLink>
+        <RouterLink to="/admin/reports">View Reports</RouterLink>
+        <RouterLink to="/admin/restrictions">User Restrictions</RouterLink>
+
       </template>
       <template v-if="isStudent">
         <RouterLink to="/student/upload">Upload Work</RouterLink>
@@ -42,7 +45,6 @@ const logout = () => {
 </template>
 
 <style scoped>
-
 header {
   position: fixed;
   top: 0;
