@@ -25,9 +25,7 @@ const logout = () => {
       <template v-if="isAdmin">
         <RouterLink to="/admin/users">Manage Users</RouterLink>
         <RouterLink to="/admin/settings">System Settings</RouterLink>
-        <RouterLink to="/admin/reports">View Reports</RouterLink>
         <RouterLink to="/admin/restrictions">User Restrictions</RouterLink>
-
       </template>
       <template v-if="isStudent">
         <RouterLink to="/student/upload">Upload Work</RouterLink>
@@ -53,7 +51,7 @@ header {
   display: flex;
   flex-direction: column;
   align-items: center;
-  position:absolute;
+  position: absolute;
   width: 180px;
   z-index: 1000;
 }
