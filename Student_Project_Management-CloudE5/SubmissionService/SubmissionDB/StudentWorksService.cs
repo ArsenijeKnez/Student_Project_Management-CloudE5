@@ -30,6 +30,11 @@ namespace SubmissionService.SubmissionDB
             return await _submissions.Find(w => w.StudentId == studentId).ToListAsync();
         }
 
+        public async Task<List<StudentWork>> GetAllWorksAsync()
+        {
+            return await _submissions.Find(Builders<StudentWork>.Filter.Empty).ToListAsync();
+        }
+
         public async Task<List<StudentWork>> GetWorksByStatusAsync(WorkStatus status)
         {
             return await _submissions.Find(u => u.Status == status).ToListAsync();

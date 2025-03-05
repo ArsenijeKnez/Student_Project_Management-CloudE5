@@ -18,10 +18,14 @@ namespace ApiGateway.Controllers
 
         private readonly BlobStorageService _blobStorageService = new BlobStorageService();
         private readonly ISubmissionService _submissionService = ServiceProxy.Create<ISubmissionService>(new Uri("fabric:/Student_Project_Management-CloudE5/SubmissionService"), new ServicePartitionKey(0), TargetReplicaSelector.PrimaryReplica);
+        private readonly IUserManagementService _userManagementService = ServiceProxy.Create<IUserManagementService>(new Uri("fabric:/Student_Project_Management-CloudE5/UserManagementService"), new ServicePartitionKey(0), TargetReplicaSelector.PrimaryReplica);
 
         [HttpPost("work")]
         public async Task<IActionResult> UploadWork([FromForm] SubmitNewWork work)
         {
+            var isRestricted = await _userManagementService.IsUserRestrictedAsync("upload", work.studentId);
+            if (isRestricted) return Unauthorized(new ResultMessage(false, "User submittions restricted"));
+
             IFormFile file = work.file;
             if (file == null || file.Length == 0)
                 return BadRequest(new ResultMessage(false, "Invalid file"));

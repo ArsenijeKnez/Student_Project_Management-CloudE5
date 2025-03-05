@@ -11,5 +11,6 @@ namespace Common.Interface
     public interface IProgressService: IService
     {
         Task<StudentProgress> GenerateStudentProgress(string studentId, List<StudentWorkDto> studentWorks);
+        Task<ClassProgress> GenerateClassProgress(List<StudentWorkDto> studentWorks);
     }
 }

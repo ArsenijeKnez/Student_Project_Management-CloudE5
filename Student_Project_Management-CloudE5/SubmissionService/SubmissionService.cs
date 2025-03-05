@@ -127,6 +127,22 @@ namespace SubmissionService
             return work == null ? null : StudentWorkMapper.ToDto(work);
         }
 
+        public async Task<List<StudentWorkDto>> GetAllStudentWorks()
+        {
+            var works = await _submissionService.GetAllWorksAsync();
+            List<StudentWorkDto> workDtos = new List<StudentWorkDto>();
+            if(works == null || works.Count == 0)
+            {
+                return new List<StudentWorkDto>();
+            }
+            else
+            {
+                foreach(var work in works) 
+                    workDtos.Add(StudentWorkMapper.ToDto(work));
+                return workDtos;
+            }
+        }
+
         public async Task<List<StudentWorkStatus>> GetWorkStatus(string studentId)
         {
             var works = await _submissionService.GetWorksByStudentIdAsync(studentId);

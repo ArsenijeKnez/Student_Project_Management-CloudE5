@@ -22,6 +22,37 @@ namespace ProgressService
             : base(context)
         { }
 
+        public Task<ClassProgress> GenerateClassProgress(List<StudentWorkDto> studentWorks)
+        {
+            if (studentWorks == null || studentWorks.Count == 0)
+            {
+                return Task.FromResult(new ClassProgress
+                {
+                    TotalStudents = 0,
+                    AverageClassScore = 0,
+                    StudentProgressList = new List<StudentProgress>()
+                });
+            }
+
+            var studentGroups = studentWorks
+                .Where(w => w.Feedback != null)
+                .GroupBy(w => w.StudentId)
+                .Select(group => GenerateStudentProgress(group.Key, group.ToList()).Result)
+                .ToList();
+
+            double averageClassScore = studentGroups.Count > 0
+                ? studentGroups.Average(sp => sp.AverageScore)
+                : 0;
+
+            return Task.FromResult(new ClassProgress
+            {
+                TotalStudents = studentGroups.Count,
+                AverageClassScore = Math.Round(averageClassScore, 2),
+                StudentProgressList = studentGroups
+            });
+        }
+
+
         public async Task<StudentProgress> GenerateStudentProgress(string studentId, List<StudentWorkDto> studentWorks)
         {
             var relevantWorks = studentWorks.Where(w => w.StudentId == studentId && w.Feedback != null).ToList();

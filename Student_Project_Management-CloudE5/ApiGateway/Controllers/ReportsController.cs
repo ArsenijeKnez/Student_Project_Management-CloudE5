@@ -24,6 +24,15 @@ namespace ApiGateway.Controllers
             StudentProgress progress = await _progressService.GenerateStudentProgress(studentId, works);
             return Ok(progress);
         }
+
+        [HttpGet("progress/class")]
+        public async Task<ActionResult<StudentProgress>> GetClassProgress()
+        {
+            List<StudentWorkDto> works = await _submissionService.GetAllStudentWorks();
+            if (works.Count == 0) return NotFound();
+            ClassProgress progress = await _progressService.GenerateClassProgress(works);
+            return Ok(progress);
+        }
     }
 }
 
