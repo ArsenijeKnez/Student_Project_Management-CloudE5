@@ -1,10 +1,10 @@
 <script setup>
-import { ref, onMounted, defineProps, computed } from 'vue';
-import reportsService from '@/services/reportsService';
-import { Chart, registerables } from 'chart.js';
-import { LineChart } from 'vue-chart-3';
+import { ref, onMounted, defineProps, computed } from 'vue'
+import reportsService from '@/services/reportsService'
+import { Chart, registerables } from 'chart.js'
+import { LineChart } from 'vue-chart-3'
 
-Chart.register(...registerables);
+Chart.register(...registerables)
 
 const props = defineProps({
   username: {
@@ -15,32 +15,46 @@ const props = defineProps({
     type: String,
     required: true,
   },
-});
+})
 
-const studentProgress = ref(null);
-const loading = ref(true);
-const error = ref(null);
+const studentProgress = ref(null)
+const loading = ref(true)
+const error = ref(null)
+const startDate = ref('')
+const endDate = ref('')
 
 const fetchStudentProgress = async () => {
   try {
-    studentProgress.value = await reportsService.getStudentProgress(props.studentId);
+    studentProgress.value = await reportsService.getStudentProgress(props.studentId)
   } catch (err) {
-    error.value = 'Failed to load student progress';
+    error.value = 'Failed to load student progress'
   } finally {
-    loading.value = false;
+    loading.value = false
   }
-};
+}
 
-onMounted(fetchStudentProgress);
+onMounted(fetchStudentProgress)
+
+const filteredScoreHistory = computed(() => {
+  if (!studentProgress.value || !studentProgress.value.scoreHistory) {
+    return {}
+  }
+
+  const start = startDate.value ? new Date(startDate.value) : null
+  const end = endDate.value ? new Date(endDate.value) : null
+
+  return Object.fromEntries(
+    Object.entries(studentProgress.value.scoreHistory).filter(([date]) => {
+      const entryDate = new Date(date)
+      return (!start || entryDate >= start) && (!end || entryDate <= end)
+    }),
+  )
+})
 
 const chartData = computed(() => {
-  if (!studentProgress.value || !studentProgress.value.scoreHistory) {
-    return { labels: [], datasets: [] };
-  }
-
-  const sortedEntries = Object.entries(studentProgress.value.scoreHistory).sort(
-    ([dateA], [dateB]) => new Date(dateA) - new Date(dateB)
-  );
+  const sortedEntries = Object.entries(filteredScoreHistory.value).sort(
+    ([dateA], [dateB]) => new Date(dateA) - new Date(dateB),
+  )
 
   return {
     labels: sortedEntries.map(([date]) => new Date(date).toLocaleDateString()),
@@ -54,8 +68,8 @@ const chartData = computed(() => {
         fill: true,
       },
     ],
-  };
-});
+  }
+})
 
 const chartOptions = {
   responsive: true,
@@ -80,12 +94,12 @@ const chartOptions = {
       },
     },
   },
-};
+}
 </script>
 
 <template>
   <div class="progress-container">
-    <h2>{{ props.username }} progress</h2>
+    <h2>{{ props.username }} Progress</h2>
 
     <div v-if="loading">Loading...</div>
     <div v-else-if="error">{{ error }}</div>
@@ -93,9 +107,15 @@ const chartOptions = {
       <p><strong>Total Works:</strong> {{ studentProgress.totalWorks }}</p>
       <p><strong>Average Score:</strong> {{ studentProgress.averageScore.toFixed(2) }}</p>
 
+      <h3>Filter Score History</h3>
+      <div class="date-filters">
+        <label>Start Date: <input type="date" v-model="startDate" /></label>
+        <label>End Date: <input type="date" v-model="endDate" /></label>
+      </div>
+
       <h3>Score History</h3>
       <ul>
-        <li v-for="(score, date) in studentProgress.scoreHistory" :key="date">
+        <li v-for="(score, date) in filteredScoreHistory" :key="date">
           <strong>{{ new Date(date).toLocaleDateString() }}:</strong> {{ score }}
         </li>
       </ul>
@@ -115,7 +135,8 @@ const chartOptions = {
   border-radius: 8px;
   max-width: 600px;
 }
-h2, h3 {
+h2,
+h3 {
   margin-bottom: 8px;
 }
 ul {
@@ -133,5 +154,13 @@ li {
   width: 100%;
   height: 100%;
   margin-top: 20px;
+}
+.date-filters {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+.date-filters label {
+  font-weight: bold;
 }
 </style>

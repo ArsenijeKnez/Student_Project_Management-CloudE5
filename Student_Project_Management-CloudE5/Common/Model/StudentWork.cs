@@ -19,6 +19,9 @@ namespace Common.Model
         [BsonElement("studentId")]
         public string StudentId { get; set; }
 
+        [BsonElement("course")]
+        public string? Course { get; set; }
+
         [BsonElement("title")]
         public string Title { get; set; }
 

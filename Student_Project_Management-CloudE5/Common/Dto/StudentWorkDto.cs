@@ -14,6 +14,7 @@ namespace Common.Dto
     {
         public string Id { get; set; }
         public string StudentId { get; set; }
+        public string? Course { get; set; }
         public string Title { get; set; }
         public List<WorkVersion> Versions { get; set; } = new List<WorkVersion>();
 

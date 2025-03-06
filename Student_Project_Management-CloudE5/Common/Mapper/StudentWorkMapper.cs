@@ -18,6 +18,7 @@ namespace Common.Mapper
             {
                 Id = entity.Id,
                 StudentId = entity.StudentId,
+                Course = entity.Course,
                 Title = entity.Title,
                 Versions = entity.Versions,
                 Status = entity.Status,
@@ -36,6 +37,7 @@ namespace Common.Mapper
             {
                 Id = dto.Id,
                 StudentId = dto.StudentId,
+                Course = dto.Course,
                 Title = dto.Title,
                 Versions = dto.Versions,
                 Reverted = dto.Reverted,
