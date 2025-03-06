@@ -34,6 +34,7 @@ const logout = () => {
       </template>
       <template v-if="isProfessor">
         <RouterLink to="/professor/students">View Students</RouterLink>
+        <RouterLink to="/professor/courses">View Courses</RouterLink>
       </template>
       <button @click="logout" v-if="user">Logout</button>
     </nav>

@@ -22,5 +22,8 @@ namespace Common.Interface
         Task<ResultMessage> SetDailySubmissionLimit(int limit);
         Task<ResultMessage> SetProcessingInterval(TimeSpan interval);
         Task<ResultMessage> UpdateFeedback(FeedbackDto feedbackDto, string studentWorkId);
+        Task<List<Course>> GetCourses();
+        Task<ResultMessage> AddCourse(string name);
+        Task<ResultMessage> DeleteCourse(string courseId);
     } 
 }

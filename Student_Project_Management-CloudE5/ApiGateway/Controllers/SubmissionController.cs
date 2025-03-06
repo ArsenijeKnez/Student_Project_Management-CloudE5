@@ -90,5 +90,27 @@ namespace ApiGateway.Controllers
             var work = await _submissionService.GetStudentWork(studentWorkId);
             return work != null ? Ok(work) : NotFound("No work found for the given id.");
         }
+
+        [HttpGet("courses")]
+        public async Task<IActionResult> GetCourses()
+        {
+            var courses = await _submissionService.GetCourses();
+            return courses != null ? Ok(courses) : NotFound(new ResultMessage(false, "No courses found"));
+        }
+
+        [HttpPost("course/new/{courseName}")]
+        public async Task<IActionResult> AddCourse(string courseName)
+        {
+            var result = await _submissionService.AddCourse(courseName);
+            return result.Success ? Ok(result) : BadRequest(new ResultMessage(false, "Failed to add course" ));
+        }
+
+        [HttpDelete("course/{courseId}")]
+        public async Task<IActionResult> DeleteCourse(string courseId)
+        {
+            var result = await _submissionService.DeleteCourse(courseId);
+            return result.Success ? Ok(result) : BadRequest(new ResultMessage(false, "Failed to delete course"));
+        }
+
     }
 }

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 using Common.Dto;
 using Common.Enum;
 using Common.Interface;
@@ -29,7 +30,8 @@ namespace SubmissionService
     internal sealed class SubmissionService : StatefulService, ISubmissionService
     {
         private readonly StudentWorksService _submissionService;
-        
+        private readonly CourseService _courseService;
+
         private readonly IReliableStateManager _stateManager;
         private readonly IAnalysisService _analysisService = ServiceProxy.Create<IAnalysisService>(new Uri("fabric:/Student_Project_Management-CloudE5/AnalysisService"), new ServicePartitionKey(0), TargetReplicaSelector.PrimaryReplica);
         
@@ -42,6 +44,7 @@ namespace SubmissionService
             : base(context)
         {
             _submissionService = new StudentWorksService("mongodb://localhost:27017", "StudentWorkDatabase", "Works");
+            _courseService = new CourseService("mongodb://localhost:27017", "StudentWorkDatabase", "Courses");
             _stateManager = this.StateManager;
 
         }
@@ -287,8 +290,30 @@ namespace SubmissionService
             return success ? new ResultMessage(true, "Feedback updated successfully") : new ResultMessage(false, "Failed to update feedback");
         }
 
+
+        public async Task<List<Course>> GetCourses()
+        {
+            var courses = await _courseService.GetAllCoursesAsync();
+            return courses;
+        }
+
+        public async Task<ResultMessage> AddCourse(string name)
+        {
+            var course = new Course { Id = ObjectId.GenerateNewId().ToString(), Name = name };
+            await _courseService.AddCourseAsync(course);
+            return new ResultMessage(true, "Course added successfully");
+        }
+
+        public async Task<ResultMessage> DeleteCourse(string courseId)
+        {
+            var deleted = await _courseService.DeleteCourseAsync(courseId);
+            return deleted
+                ? new ResultMessage(true, "Course deleted successfully")
+                : new ResultMessage(false, "Course not found");
+        }
+
+
         protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners() => this.CreateServiceRemotingReplicaListeners();
 
-     
     }
 }

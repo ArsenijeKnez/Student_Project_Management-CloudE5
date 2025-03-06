@@ -68,6 +68,12 @@ const router = createRouter({
       component: () => import('../views/professor/IndividualStudentReportsView.vue'),
       meta: { requiresAuth: true, role: 'Professor' },
     },
+    {
+      path: '/professor/courses',
+      name: 'courses-display',
+      component: () => import('../views/professor/CourseView.vue'),
+      meta: { requiresAuth: true, role: 'Professor' },
+    },
   ],
 })
 
