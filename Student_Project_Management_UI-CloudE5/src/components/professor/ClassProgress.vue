@@ -63,6 +63,7 @@ const chartOptions = {
     <div v-else>
       <p>Total Students: {{ classProgress.totalStudents }}</p>
       <p>Average Class Score: {{ classProgress.averageClassScore }}</p>
+      <p>Common Mistake: {{ classProgress.commonMistake }}</p>
 
       <div v-if="chartData">
         <LineChart :chart-data="chartData" :chart-options="chartOptions" />

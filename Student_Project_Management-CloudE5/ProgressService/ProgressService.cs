@@ -22,6 +22,34 @@ namespace ProgressService
             : base(context)
         { }
 
+        private string FindMostCommonMistake(List<StudentWorkDto> studentWorks)
+        {
+            var allErrors = studentWorks
+                .Where(w => w.Feedback != null && w.Feedback.Errors != null)
+                .SelectMany(w => w.Feedback.Errors)
+                .Where(e => !string.IsNullOrWhiteSpace(e))
+                .Select(e => e.Trim().ToLower()) // Normalize errors
+                .ToList();
+
+            if (allErrors.Count == 0)
+            {
+                return "No mistakes found.";
+            }
+
+            var groupedErrors = allErrors
+                .GroupBy(e => e)
+                .OrderByDescending(g => g.Count())
+                .ToList();
+
+            if (groupedErrors.Count < 2 || groupedErrors.First().Count() == 1)
+            {
+                return "No common mistakes";
+            }
+
+            return groupedErrors.First().Key;
+        }
+
+
         public Task<ClassProgress> GenerateClassProgress(List<StudentWorkDto> studentWorks)
         {
             if (studentWorks == null || studentWorks.Count == 0)
@@ -30,7 +58,8 @@ namespace ProgressService
                 {
                     TotalStudents = 0,
                     AverageClassScore = 0,
-                    StudentProgressList = new List<StudentProgress>()
+                    StudentProgressList = new List<StudentProgress>(),
+                    CommonMistake = "No mistakes found."
                 });
             }
 
@@ -44,11 +73,14 @@ namespace ProgressService
                 ? studentGroups.Average(sp => sp.AverageScore)
                 : 0;
 
+            var commonMistake = FindMostCommonMistake(studentWorks);
+
             return Task.FromResult(new ClassProgress
             {
                 TotalStudents = studentGroups.Count,
                 AverageClassScore = Math.Round(averageClassScore, 2),
-                StudentProgressList = studentGroups
+                StudentProgressList = studentGroups,
+                CommonMistake = commonMistake
             });
         }
 

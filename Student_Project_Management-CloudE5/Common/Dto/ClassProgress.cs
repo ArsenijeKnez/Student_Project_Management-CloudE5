@@ -11,5 +11,6 @@ namespace Common.Dto
         public int TotalStudents { get; set; }
         public double AverageClassScore { get; set; }
         public List<StudentProgress> StudentProgressList { get; set; }
+        public string CommonMistake { get; set; }
     }
 }
